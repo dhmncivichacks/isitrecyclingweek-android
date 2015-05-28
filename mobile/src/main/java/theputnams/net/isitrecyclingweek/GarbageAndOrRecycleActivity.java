@@ -207,62 +207,66 @@ public class GarbageAndOrRecycleActivity extends Activity {
         private void updateView() {
             try {
                 JSONArray propertyKey = getStoredPropertyKey();
-                JSONArray propertyData = fetchData(propertyKey);
-                Date recycleDate = getRecycleDate(propertyData);
+                if(propertyKey != null) {
+                    JSONArray propertyData = fetchData(propertyKey);
+                    Date recycleDate = getRecycleDate(propertyData);
 
-                Calendar c = new GregorianCalendar();
-                c.set(Calendar.HOUR_OF_DAY, 0);
-                c.set(Calendar.MINUTE, 0);
-                c.set(Calendar.SECOND, 0);
-                Date today = c.getTime();
 
-                Integer days_until_next_recycling_date = ((int) ((recycleDate.getTime() / (24 * 60 * 60 * 1000)) - (int) (today.getTime() / (24 * 60 * 60 * 1000))));
-                Integer days_until_next_pickup;
 
-                //Garbage weekly, recycling every two weeks.
-                if (days_until_next_recycling_date >= 7) {
-                    days_until_next_pickup = days_until_next_recycling_date - 7;
-                } else {
-                    days_until_next_pickup = days_until_next_recycling_date;
-                }
+                    Calendar c = new GregorianCalendar();
+                    c.set(Calendar.HOUR_OF_DAY, 0);
+                    c.set(Calendar.MINUTE, 0);
+                    c.set(Calendar.SECOND, 0);
+                    Date today = c.getTime();
 
-                /*
-                Upstream bumps the recycle date forward at 12am on recycle day.
-                This results in misrepresenting the actual day of pickup. :(
-                 */
-                if (days_until_next_recycling_date.equals(Integer.valueOf(14)) || days_until_next_pickup.equals(Integer.valueOf(0))) {
-                    tvNextPickup.setText(R.string.pickup_today);
-                } else if (days_until_next_pickup == 1) {
-                    tvNextPickup.setText(R.string.pickup_tomorrow);
-                } else {
-                    String strNextPickupFormat = getResources().getString(R.string.pickup_in_n_days);
-                    String strNextPickup = String.format(
-                            Locale.ENGLISH, //TODO handle any language
-                            strNextPickupFormat,
-                            days_until_next_pickup);
-                    tvNextPickup.setText(strNextPickup);
-                }
+                    Integer days_until_next_recycling_date = ((int) ((recycleDate.getTime() / (24 * 60 * 60 * 1000)) - (int) (today.getTime() / (24 * 60 * 60 * 1000))));
+                    Integer days_until_next_pickup;
 
-                if (days_until_next_recycling_date < 7 || days_until_next_recycling_date.equals(Integer.valueOf(14))) {
-                    //recycling week
-                    Log.d("WEEK? ", "recycling");
-                    imageView.setImageResource(R.drawable.recycling_week);
-                    tvAnswerYesNope.setText(R.string.yes);
-                    tvInstructions.setText(R.string.put_out_the_recycling_bin);
-                } else {
-                    //garbage only
-                    Log.d("WEEK? ", "garbage only");
-                    imageView.setImageResource(R.drawable.garbage_week);
-                    tvAnswerYesNope.setText(R.string.nope);
-                    tvInstructions.setText(R.string.garbage_bin_only);
-                }
+                    //Garbage weekly, recycling every two weeks.
+                    if (days_until_next_recycling_date >= 7) {
+                        days_until_next_pickup = days_until_next_recycling_date - 7;
+                    } else {
+                        days_until_next_pickup = days_until_next_recycling_date;
+                    }
 
-                //Display property depicted
-                if (propertyKey != null) {
+                    /*
+                    Upstream bumps the recycle date forward at 12am on recycle day.
+                    This results in misrepresenting the actual day of pickup. :(
+                     */
+                    if (days_until_next_recycling_date.equals(Integer.valueOf(14)) || days_until_next_pickup.equals(Integer.valueOf(0))) {
+                        tvNextPickup.setText(R.string.pickup_today);
+                    } else if (days_until_next_pickup == 1) {
+                        tvNextPickup.setText(R.string.pickup_tomorrow);
+                    } else {
+                        String strNextPickupFormat = getResources().getString(R.string.pickup_in_n_days);
+                        String strNextPickup = String.format(
+                                Locale.ENGLISH, //TODO handle any language
+                                strNextPickupFormat,
+                                days_until_next_pickup);
+                        tvNextPickup.setText(strNextPickup);
+                    }
+
+                    if (days_until_next_recycling_date < 7 || days_until_next_recycling_date.equals(Integer.valueOf(14))) {
+                        //recycling week
+                        Log.d("WEEK? ", "recycling");
+                        imageView.setImageResource(R.drawable.recycling_week);
+                        tvAnswerYesNope.setText(R.string.yes);
+                        tvInstructions.setText(R.string.put_out_the_recycling_bin);
+                    } else {
+                        //garbage only
+                        Log.d("WEEK? ", "garbage only");
+                        imageView.setImageResource(R.drawable.garbage_week);
+                        tvAnswerYesNope.setText(R.string.nope);
+                        tvInstructions.setText(R.string.garbage_bin_only);
+                    }
+
+                    //Display property depicted
                     Log.d("propertyKey",propertyKey.get(1).toString() + " " + propertyKey.get(2).toString());
                     tvPropertyKey.setText(propertyKey.get(1).toString() + " " + propertyKey.get(2).toString());
-                }
 
+                } else {
+                    startActivity(new Intent(getActivity(), SearchActivity.class));
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
