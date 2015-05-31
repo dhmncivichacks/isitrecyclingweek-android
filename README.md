@@ -6,7 +6,7 @@ This open source app was written for citizens of Appleton, WI wanting to know if
 
 All data comes directly from the city-managed site: http://my.appleton.org/
 
-![Set Location](/screenshots/01_set_location_500px.png)![Pick from results](/screenshots/02_pick_from_results_500px.png)![Yes recycling](03_main_view_yes_recycling_500px.png)![No recycling](04_main_view_not_recycling_500px.png)![About](05_about_view_500px.png)
+![Set Location](/screenshots/01_set_location_500px.png)![Pick from results](/screenshots/02_pick_from_results_500px.png)![Yes recycling](/screenshots/03_main_view_yes_recycling_500px.png)![No recycling](/screenshots/04_main_view_not_recycling_500px.png)![About](/screenshots/05_about_view_500px.png)
 
 ##Goals:
 
