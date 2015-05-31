@@ -1,0 +1,52 @@
+#Is it recycling week?
+
+Appleton WI - Quickly lookup the recycling pickup schedule for the current week.
+
+This open source app was written for citizens of Appleton, WI wanting to know if it is a recycling pickup week or not via their mobile devices. While not a sophisticated application, it is a useful one.
+
+All data comes directly from the city-managed site: http://my.appleton.org/
+
+![Set Location](/screenshots/01_set_location_500px.png)![Pick from results](/screenshots/02_pick_from_results_500px.png)![Yes recycling](03_main_view_yes_recycling_500px.png)![No recycling](04_main_view_not_recycling_500px.png)![About](05_about_view_500px.png)
+
+##Goals:
+
+* Do one thing, do it well. Resist the temptation to grow the features/purpose of the app to include more than determining if it is recycling week. If some other municipal data app would be useful, create a separate app.
+* Be and stay open source. Contribute to and benefit from the local and global community of civic hackers.
+* No advertisements. As a community-built, donated-time application let's not sell any products, mkay?
+* Cost $0.00 and minimal time investment to maintain. Many Internet services/APIs provide a free tier of resources.
+* Do not become data stewards if we can help it. The city already provides the data.
+* Be usable by all citizens by being available in more than just the english language.
+
+##How to help:
+Want to help improve this app or it's [API](https://github.com/mikeputnam/appletonapi)? Have a suggestion?
+Take a look at our [todo list / suggestion box / open issues](https://github.com/mikeputnam/isitrecyclingweek/issues) here on Github.
+
+Generally speaking, this and any open software project can benefit from documentors, graphic designers, user experience designers, good ideas, inclusivity, and of course software developers.
+
+##Software Setup:
+
+###Pre-requisites:
+* [Java JDK7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
+* [Android Studio](http://developer.android.com/tools/studio/) is Google's purpose-built IDE for writing Android apps. It includes the SDK's for emulating devices, a code editor based on IntelliJ IDEA, and source control plugins for git.
+* [Git](https://git-scm.com/downloads)
+
+From the Android Studio start dialog choose "Check out project from Version Control"
+
+Choose "GitHub"
+
+...FIXME
+
+
+
+##License:
+
+This project is licensed under the ISC license. See [LICENSE.txt](LICENSE.txt)
+
+##Thanks to:
+
+* [City of Appleton](http://appleton.org/) for providing open data to hack on.
+* Bob Waldron and [DHMN Civic Hacks](http://dhmncivichacks.blogspot.com/) for leading the first Northeast Wisconsin civic hackathon.
+* All the people at the [Appleton Makerspace](http://appletonmakerspace.org/) for inspiration and a place to write code.
+* [Jim Carlson](https://twitter.com/hypnagogic) and [BarCampMilwaukee](http://barcampmilwaukee.org/) for introducing me to unconferences.
+* Greg Tracy and [SMSMyBus](http://smsmybus.com/) for an inspiring example of civic hacking in Madison, WI
+* [Google App Engine](https://cloud.google.com/appengine/) for providing a generous free tier of their PaaS hosting.
