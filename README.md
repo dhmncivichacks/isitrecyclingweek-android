@@ -26,7 +26,7 @@ Take a look at our [todo list / suggestion box / open issues](https://github.com
 Generally speaking, this and any open software project can benefit from documentors, graphic designers, user experience designers, good ideas, inclusivity, and of course software developers.
 
 ###Development build
-If you'd like to try out the latest or provide testing feedback you can install one of [these development builds](https://drive.google.com/open?id=0B8rPWjP8XYgDfmpscWR4U3JnZVh0VUllZ1J2ZTRFdVVJLW80Ynd2RG5tbkF5Umxua09rWTA).
+If you'd like to try out the latest or provide testing feedback you can install one of [these development builds](https://drive.google.com/a/nextwavehealth.com/folderview?id=0B8rPWjP8XYgDfmpscWR4U3JnZVh0VUllZ1J2ZTRFdVVJLW80Ynd2RG5tbkF5Umxua09rWTA&usp=drive_web#list).
 
 In order to install these .apk files on your Android device, you'll need to enable installing apps from unknown sources(i.e. not the Play Store). Be cautious with this - I personally enable it then disable it again after I've installed the .apk
 
