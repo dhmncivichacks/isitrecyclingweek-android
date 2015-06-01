@@ -27,16 +27,17 @@ Generally speaking, this and any open software project can benefit from document
 
 ###Pre-requisites:
 * [Java JDK7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
-* [Android Studio](http://developer.android.com/tools/studio/) is Google's purpose-built IDE for writing Android apps. It includes the SDK's for emulating devices, a code editor based on IntelliJ IDEA, and source control plugins for git.
 * [Git](https://git-scm.com/downloads)
+* [Android Studio](http://developer.android.com/tools/studio/) is Google's purpose-built IDE for writing Android apps. It includes the SDK's for emulating devices, a code editor based on IntelliJ IDEA, and source control plugins for git.
 
-From the Android Studio start dialog choose "Check out project from Version Control"
-
-Choose "GitHub"
-
-...FIXME
-
-
+###General OS-agnostic steps:
+1. Install Java
+1. Install Git
+1. Install Android Studio
+1. Run the Android SDK that came bundled with Android Studio to download and setup platform/API version 21 (Android 5.0) -- I've also tested versions 19 and 22 successfully.
+1. Clone this repo to a directory
+1. Open the directory from Android Studio as an existing Android Project.
+1. Hack away and submit pull reqests back to this repo!
 
 ##License:
 
