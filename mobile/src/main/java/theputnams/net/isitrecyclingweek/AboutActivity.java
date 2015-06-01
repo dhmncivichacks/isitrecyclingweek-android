@@ -44,6 +44,12 @@ public class AboutActivity extends Activity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
+
     public static class PlaceholderFragment extends Fragment {
 
         public PlaceholderFragment() {
