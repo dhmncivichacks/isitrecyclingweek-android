@@ -81,6 +81,10 @@ public class GarbageAndOrRecycleActivity extends Activity {
         }
     }
 
+    public void setLocation(View view) {
+        startActivity(new Intent(this, SearchActivity.class));
+    }
+
     public static class GarbageAndOrRecycleFragment extends Fragment {
 
         public View view = null;
