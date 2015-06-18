@@ -18,7 +18,7 @@
 <resources>
 
     <string name="app_name">Is it recycling week?</string>
-    <string name="api_uri">http://appletonapi.appspot.com</string>
+    <string name="api_uri">http://3-0.appletonapi.appspot.com</string>
     <string name="put_out_the_recycling_bin">Put out both garbage and recycling.</string>
     <string name="yes">Yes!</string>
     <string name="nope">Nope.</string>
@@ -29,8 +29,7 @@
     <string name="image_of_containers">Image of containers.</string>
     <string name="action_setlocation">Set location</string>
     <string name="title_activity_search">Set Location</string>
-    <string name="textview_house_number">House Number</string>
-    <string name="textview_street_name">Base Street Name (ex: College not W College Ave)</string>
+    <string name="textview_street_address">Street Address (without cardinal direction ex: N or North)</string>
     <string name="button_search">Search</string>
     <string name="title_activity_search_result">Set Location</string>
     <string name="title_activity_about">About</string>

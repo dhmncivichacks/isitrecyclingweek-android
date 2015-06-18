@@ -25,21 +25,9 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/house_number"
+        android:id="@+id/street_address"
         android:maxLength="50"
-        android:inputType="number"
-        android:layout_below="@+id/textview_house_number"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/street_name"
-        android:layout_alignEnd="@+id/street_name" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/street_name"
-        android:maxLength="50"
-        android:layout_below="@+id/textview_street_name"
+        android:layout_below="@+id/textview_street_address"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -48,17 +36,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/textview_house_number"
-        android:id="@+id/textview_house_number"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/textview_street_name"
-        android:id="@+id/textview_street_name"
-        android:layout_below="@+id/house_number"
+        android:text="@string/textview_street_address"
+        android:id="@+id/textview_street_address"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -68,7 +47,7 @@
         android:text="@string/button_search"
         android:id="@+id/button_search"
         android:onClick="button_search_onclick"
-        android:layout_below="@+id/street_name"
+        android:layout_below="@+id/street_address"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
