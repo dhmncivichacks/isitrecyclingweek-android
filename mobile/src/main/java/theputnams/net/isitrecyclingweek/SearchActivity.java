@@ -34,6 +34,8 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -82,17 +84,21 @@ public class SearchActivity extends Activity {
             }
         };
 
-        EditText input_house_number = (EditText)findViewById(R.id.house_number);
-        input_house_number.setFilters(new InputFilter[] { inputFilter });
-        String string_house_number = input_house_number.getText().toString();
+        EditText input_street_address = (EditText)findViewById(R.id.street_address);
+        input_street_address.setFilters(new InputFilter[] { inputFilter });
+        String string_street_address = input_street_address.getText().toString();
 
-        EditText input_street_name = (EditText)findViewById(R.id.street_name);
-        input_street_name.setFilters(new InputFilter[] { inputFilter });
-        String string_street_name = input_street_name.getText().toString();
+        String search_endpoint = null;
+        try {
+            search_endpoint = getString(R.string.api_uri) + "/search?q=" + URLEncoder.encode(string_street_address, "UTF-8");
+            Log.d("search_endpoint: ",search_endpoint);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
         String http_payload = null;
         try {
-            http_payload = new WebAsyncTask().execute(getString(R.string.api_uri) + "/search?h="+string_house_number+"&s="+string_street_name).get();
+            http_payload = new WebAsyncTask().execute(search_endpoint).get();
             if (http_payload != null) {
                 Log.d("http_payload: ", http_payload);
 
@@ -114,7 +120,7 @@ public class SearchActivity extends Activity {
                 }
 
             } else {
-                Toast.makeText(getApplicationContext(),"Sorry. Cannot include cardinal directions or street types. Base street name only.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Sorry. Couldn't fetch data.", Toast.LENGTH_LONG).show();
             }
         } catch (JSONException | InterruptedException | ExecutionException e) {
             e.printStackTrace();
