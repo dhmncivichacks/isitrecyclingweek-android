@@ -51,8 +51,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:padding="50px"
         android:gravity="center"
-        style="@android:style/TextAppearance.DeviceDefault.Medium"
+        style="@android:style/TextAppearance.DeviceDefault.Large"
+        android:onClick="setLocation"
         android:id="@+id/text_property_key"/>
 
 </LinearLayout>
