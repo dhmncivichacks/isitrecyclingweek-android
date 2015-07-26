@@ -29,16 +29,29 @@
     <string name="image_of_containers">Image of containers.</string>
     <string name="action_setlocation">Set location</string>
     <string name="title_activity_search">Set Location</string>
-    <string name="textview_street_address">Street Address (without cardinal direction ex: N or North)</string>
+    <string name="textview_street_address">Street Address</string>
     <string name="button_search">Search</string>
     <string name="title_activity_search_result">Set Location</string>
     <string name="title_activity_about">About</string>
     <string name="textview_about"><![CDATA[
-<h5>This open source app was written for citizens of Appleton, WI wanting to know if it is a recycling pickup week or not via their mobile devices.</h5>
+<h5>This open source app was written for citizens of Appleton, WI wanting to know if it is a recycling pickup week or not via Android devices.</h5>
 
 <p>All data comes directly from the city-managed site:<br/><a href="http://my.appleton.org/">http://my.appleton.org/</a></p>
 
 <p>Want to help improve this app or it\'s API? See us on <a href="https://github.com/mikeputnam/isitrecyclingweek">Github</a>!</p>
+
+<p>
+<i><b>Android app Contributors:</b></i>
+<br/>Chris Jaure
+<br/>Dan Gabrielson
+<br/>David Kieffer
+</p>
+
+<p>
+<i><b>Other "Is it recycling week?" clients:</b></i>
+<br/><a href="https://github.com/dhmncivichacks/AppletonPebble">Pebble watch client</a>
+<br/><a href="http://dhmncivichacks.github.io/isitrecycling/">Web client</a>
+</p>
 
 <p><i><b>Thanks to:</b></i></p>
 
@@ -46,13 +59,14 @@
 
 <p>Bob Waldron and <a href="http://dhmncivichacks.blogspot.com/">DHMN Civic Hacks</a> for leading the first Northeast Wisconsin civic hackathon.</p>
 
-<p>All the people at the <a href="http://appletonmakerspace.org/">Appleton Makerspace</a> for inspiration and a place to write code.</p>
+<p>All the people at the <a href="http://appletonmakerspace.org/">Appleton Makerspace</a> and the <a href="http://www.theavenuehq.com/">AvenueHQ</a> for inspiration and a place to write code.</p>
 
 <p>Jim Carlson and <a href="http://barcampmilwaukee.org/">BarCampMilwaukee</a> for introducing me to unconferences.</p>
 
 <p>Greg Tracy and <a href="http://smsmybus.com/">SMSMyBus</a> for an inspiring example of civic hacking in Madison, WI</p>
 
 <p><a href="https://cloud.google.com/appengine/">Google App Engine</a> for providing a generous free tier of their PaaS hosting.</p>
+
 ]]></string>
 
 
