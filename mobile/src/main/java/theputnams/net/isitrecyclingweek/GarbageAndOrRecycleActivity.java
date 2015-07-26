@@ -253,13 +253,13 @@ public class GarbageAndOrRecycleActivity extends Activity {
                     if (days_until_next_recycling_date < 7 || days_until_next_recycling_date.equals(Integer.valueOf(14))) {
                         //recycling week
                         Log.d("WEEK? ", "recycling");
-                        imageView.setImageResource(R.drawable.recycling_week);
+                        imageView.setImageResource(R.drawable.recycling_week_icon);
                         tvAnswerYesNope.setText(R.string.yes);
                         tvInstructions.setText(R.string.put_out_the_recycling_bin);
                     } else {
                         //garbage only
                         Log.d("WEEK? ", "garbage only");
-                        imageView.setImageResource(R.drawable.garbage_week);
+                        imageView.setImageResource(R.drawable.garbage_week_icon);
                         tvAnswerYesNope.setText(R.string.nope);
                         tvInstructions.setText(R.string.garbage_bin_only);
                     }
