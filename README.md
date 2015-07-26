@@ -8,8 +8,7 @@ All data comes directly from the city-managed site: http://my.appleton.org/
 
 This is a client app for the [AppletonAPI](https://github.com/mikeputnam/appletonapi)
 
-![Set Location](/screenshots/01_set_location_500px.png)![Pick from results](/screenshots/02_pick_from_results_500px.png)![Yes recycling](/screenshots/03_main_view_yes_recycling_500px.png)![No recycling](/screenshots/04_main_view_not_recycling_500px.png)![About](/screenshots/05_about_view_500px.png)
-
+![Set Location](/screenshots/2015-07-26_5554:Nexus_4_API_21_004_450px.png)![Pick from results](/screenshots/2015-07-26_5554:Nexus_4_API_21_005_450px.png)![Yes recycling](/screenshots/2015-07-26_5554:Nexus_4_API_21_003_450px.png)
 ##Goals:
 
 * Do one thing, do it well. Resist the temptation to grow the features/purpose of the app to include more than determining if it is recycling week. If some other municipal data app would be useful, create a separate app.
