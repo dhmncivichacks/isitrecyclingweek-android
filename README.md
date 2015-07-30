@@ -8,6 +8,8 @@ All data comes directly from the city-managed site: http://my.appleton.org/
 
 This is a client app for the [AppletonAPI](https://github.com/mikeputnam/appletonapi)
 
+Available on the Google Play store: [Is it recycling week?](https://play.google.com/store/apps/details?id=theputnams.net.isitrecyclingweek)
+
 ![Set Location](/screenshots/2015-07-26_5554:Nexus_4_API_21_004_450px.png)![Pick from results](/screenshots/2015-07-26_5554:Nexus_4_API_21_005_450px.png)![Yes recycling](/screenshots/2015-07-26_5554:Nexus_4_API_21_003_450px.png)
 ##Goals:
 
