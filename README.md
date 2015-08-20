@@ -6,7 +6,7 @@ This open source app was written for citizens of Appleton, WI wanting to know if
 
 All data comes directly from the city-managed site: http://my.appleton.org/
 
-This is a client app for the [AppletonAPI](https://github.com/mikeputnam/appletonapi)
+This is a client app for the [AppletonAPI](https://github.com/dhmncivichacks/appletonapi)
 
 Available on the Google Play store: [Is it recycling week?](https://play.google.com/store/apps/details?id=theputnams.net.isitrecyclingweek)
 
@@ -21,8 +21,8 @@ Available on the Google Play store: [Is it recycling week?](https://play.google.
 * Be usable by all citizens by being available in more than just the english language.
 
 ##How to help:
-Want to help improve this app or it's [API](https://github.com/mikeputnam/appletonapi)? Have a suggestion?
-Take a look at our [todo list / suggestion box / open issues](https://github.com/mikeputnam/isitrecyclingweek/issues) here on Github.
+Want to help improve this app or it's [API](https://github.com/dhmncivichacks/appletonapi)? Have a suggestion?
+Take a look at our [todo list / suggestion box / open issues](https://github.com/dhmncivichacks/isitrecyclingweek/issues) here on Github.
 
 Generally speaking, this and any open software project can benefit from documentors, graphic designers, user experience designers, good ideas, inclusivity, and of course software developers.
 
