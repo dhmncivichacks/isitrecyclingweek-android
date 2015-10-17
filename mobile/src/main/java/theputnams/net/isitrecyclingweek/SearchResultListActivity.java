@@ -18,6 +18,7 @@ package theputnams.net.isitrecyclingweek;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -70,22 +71,11 @@ public class SearchResultListActivity extends ListActivity {
 
         //Try saving the user's choice to a file for subsequent runs of the app
         try {
-            String FILENAME = "isitrecyclingweek.dat";
-            Log.d("SAVE DATA","Attempting to save persisted data file: " + FILENAME);
-            File path = Environment.getExternalStorageDirectory();
-            File file = new File(path, FILENAME);
-            boolean mkdirsSuccess = path.mkdirs();
-            if(!mkdirsSuccess){Log.d("ERROR","Could not create directories. ");}
-            OutputStream fos = null;
-            try {
-                fos = new FileOutputStream(file);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            if (fos != null) {
-                fos.write(selection.getBytes());
-                fos.close();
-            }
+            SharedPreferences preferences = getSharedPreferences("recyclingWeek", MODE_PRIVATE);
+            SharedPreferences.Editor edit = preferences.edit();
+
+            edit.putString("address", selection);
+            edit.commit();
 
             //With choice saved on the filesystem, let's go render the main activity!
             startActivity(new Intent(this, GarbageAndOrRecycleActivity.class));
