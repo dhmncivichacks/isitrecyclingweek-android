@@ -19,6 +19,7 @@ package theputnams.net.isitrecyclingweek;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -54,6 +55,10 @@ public class GarbageAndOrRecycleActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_garbageandorrecycle);
         if (savedInstanceState == null) {
+
+            SharedPreferences preferences = getSharedPreferences("recyclingWeek", MODE_PRIVATE);
+            GarbageAndOrRecycleFragment.Address = preferences.getString("address", null);
+
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new GarbageAndOrRecycleFragment())
                     .commit();
@@ -87,6 +92,8 @@ public class GarbageAndOrRecycleActivity extends Activity {
 
     public static class GarbageAndOrRecycleFragment extends Fragment {
 
+        public static String Address;
+
         public View view = null;
         public ImageView imageView = null;
         public TextView tvAnswerYesNope = null;
@@ -102,33 +109,15 @@ public class GarbageAndOrRecycleActivity extends Activity {
          */
         private JSONArray getStoredPropertyKey() {
             JSONArray propertyKey = null;
-            String FILENAME = "isitrecyclingweek.dat";
-            Log.d("DEBUG", "Attempting to load persisted data file: " + FILENAME);
-            File path = Environment.getExternalStorageDirectory();
-            boolean mkdirsSuccess = path.mkdirs();
-            if(!mkdirsSuccess){Log.w("WARN","Could not create directories. ");}
-            File file = new File(path, FILENAME);
 
-            if (!file.exists() || file.isDirectory()) {
+            if (Address == null) {
                 //First time user, lets go over and set an initial location
                 startActivity(new Intent(getActivity(), SearchActivity.class));
             } else {
 
                 //Open the persistence file and grab it's property key
                 try {
-                    BufferedInputStream in = new BufferedInputStream(new FileInputStream(file));
-
-                    byte[] contents = new byte[1024];
-
-                    int bytesRead;
-                    String fileContents = "";
-                    while ((bytesRead = in.read(contents)) != -1) {
-                        fileContents = new String(contents, 0, bytesRead);
-                    }
-                    Log.d("strFileContents: ", fileContents);
-                    propertyKey = new JSONArray(fileContents);
-                } catch (IOException e) {
-                    Log.e("ERROR", "Failed to open persisted data file. " + e);
+                    propertyKey = new JSONArray(Address);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
