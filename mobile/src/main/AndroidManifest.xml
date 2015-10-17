@@ -43,10 +43,6 @@
             android:label="@string/title_activity_search" >
         </activity>
         <activity
-            android:name=".SearchResultListActivity"
-            android:label="@string/title_activity_search_result" >
-        </activity>
-        <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>

@@ -18,7 +18,7 @@
 <resources>
 
     <string name="app_name">Is it recycling week?</string>
-    <string name="api_uri">http://3-0.appletonapi.appspot.com</string>
+    <string name="api_uri">http://civic-hack-api-locator.azurewebsites.net</string>
     <string name="put_out_the_recycling_bin">Put out both garbage and recycling.</string>
     <string name="yes">Yes!</string>
     <string name="nope">Nope.</string>
