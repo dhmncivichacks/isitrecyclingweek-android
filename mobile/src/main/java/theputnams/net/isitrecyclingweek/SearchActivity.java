@@ -93,7 +93,7 @@ public class SearchActivity extends Activity {
         String http_payload = null;
         try {
             String foo = getString(R.string.api_uri) + "/api/implementations?addr=" + URLEncoder.encode(string_street_address, "UTF-8");
-
+//FIXME need to parse this and store the implementation URL so we can call it over in the main view
             http_payload = new WebAsyncTask().execute(foo).get();
 
             if (http_payload != null) {
@@ -109,12 +109,12 @@ public class SearchActivity extends Activity {
                     }
                 }
 
-/*                if (length < 1) {
+                if (length < 1) {
                     Toast.makeText(getApplicationContext(),"Sorry. Nothing found.", Toast.LENGTH_LONG).show();
                 } else {
                     //Let's go render the main activity!
                     startActivity(new Intent(this, GarbageAndOrRecycleActivity.class));
-                }*/
+                }
 
             } else {
                 Toast.makeText(getApplicationContext(),"Sorry. Nothing found.", Toast.LENGTH_LONG).show();

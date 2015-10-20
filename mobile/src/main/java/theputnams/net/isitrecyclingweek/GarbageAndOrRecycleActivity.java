@@ -40,6 +40,8 @@ import java.io.File;
 import java.io.FileInputStream;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -99,7 +101,7 @@ public class GarbageAndOrRecycleActivity extends Activity {
         public TextView tvAnswerYesNope = null;
         public TextView tvInstructions = null;
         public TextView tvNextPickup = null;
-        public TextView tvPropertyKey = null;
+        public TextView tvuserAddress = null;
 
         public GarbageAndOrRecycleFragment() {
         }
@@ -107,38 +109,41 @@ public class GarbageAndOrRecycleActivity extends Activity {
         /*
         Get users property selection from filesystem
          */
-        private JSONArray getStoredPropertyKey() {
-            JSONArray propertyKey = null;
+        private String getStoredUserAddress() {
+            String userAddress = null;
 
             if (Address == null) {
                 //First time user, lets go over and set an initial location
                 startActivity(new Intent(getActivity(), SearchActivity.class));
             } else {
 
-                //Open the persistence file and grab it's property key
+                //Fetch the user's stored address
                 try {
-                    propertyKey = new JSONArray(Address);
-                } catch (JSONException e) {
+                    userAddress = new String(Address);
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
 
-            return propertyKey;
+            return userAddress;
         }
 
         /*
-        Using the property key, go fetch the latest data from the api
+        Using the user's address, go fetch the latest data from the api
          */
-        private JSONArray fetchData(JSONArray propertyKey) throws JSONException {
+        private JSONArray fetchData(String userAddress) throws JSONException {
 
             String http_payload = null;
 
             try {
-                if (propertyKey != null) {
-                    http_payload = new WebAsyncTask().execute(getString(R.string.api_uri) + "/property/" + propertyKey.get(0)).get();
+                if (userAddress != null) {
+                    //FIXME this needs to be derived from
+                    http_payload = new WebAsyncTask().execute("http://appletonapi.appspot.com/garbagecollection?addr=" + URLEncoder.encode(userAddress, "UTF-8")).get();
                 }
                 Log.d("fetchData: ", http_payload);
-            } catch (ExecutionException | InterruptedException | JSONException e) {
+            } catch (ExecutionException | InterruptedException e) {
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
 
@@ -149,7 +154,22 @@ public class GarbageAndOrRecycleActivity extends Activity {
         Using all the property data get the recycling date
          */
         private Date getRecycleDate(JSONArray propertyData) {
-
+/*
+[
+    {
+        "collectionDate": "2015-10-26",
+        "collectionType": "trash"
+    },
+    {
+        "collectionDate": "2015-11-02",
+        "collectionType": "trash"
+    },
+    {
+        "collectionDate": "2015-11-02",
+        "collectionType": "recycling"
+    }
+]
+*/
             Date recycleDate = null;
 
             //The chunk of json from the api that contains the recycling date string
@@ -191,7 +211,7 @@ public class GarbageAndOrRecycleActivity extends Activity {
             tvAnswerYesNope = (TextView) view.findViewById(R.id.text_answer_yes_nope);
             tvInstructions = (TextView) view.findViewById(R.id.text_instructions);
             tvNextPickup = (TextView) view.findViewById(R.id.text_next_pickup);
-            tvPropertyKey = (TextView) view.findViewById(R.id.text_property_key);
+            tvuserAddress = (TextView) view.findViewById(R.id.text_property_key);
 
             return view;
 
@@ -199,10 +219,11 @@ public class GarbageAndOrRecycleActivity extends Activity {
 
         private void updateView() {
             try {
-                JSONArray propertyKey = getStoredPropertyKey();
-                if(propertyKey != null) {
-                    JSONArray propertyData = fetchData(propertyKey);
-                    Date recycleDate = getRecycleDate(propertyData);
+                String userAddress = getStoredUserAddress();
+                if(userAddress != null) {
+                    JSONArray collectionSchedule = fetchData(userAddress);
+
+/*                    Date recycleDate = getRecycleDate(collectionSchedule);
 
 
 
@@ -222,10 +243,10 @@ public class GarbageAndOrRecycleActivity extends Activity {
                         days_until_next_pickup = days_until_next_recycling_date;
                     }
 
-                    /*
+                    *//*
                     Upstream bumps the recycle date forward at 12am on recycle day.
                     This results in misrepresenting the actual day of pickup. :(
-                     */
+                     *//*
                     if (days_until_next_recycling_date.equals(Integer.valueOf(14)) || days_until_next_pickup.equals(Integer.valueOf(0))) {
                         tvNextPickup.setText(R.string.pickup_today);
                     } else if (days_until_next_pickup == 1) {
@@ -251,11 +272,11 @@ public class GarbageAndOrRecycleActivity extends Activity {
                         imageView.setImageResource(R.drawable.garbage_week_icon);
                         tvAnswerYesNope.setText(R.string.nope);
                         tvInstructions.setText(R.string.garbage_bin_only);
-                    }
+                    }*/
 
                     //Display property depicted
-                    Log.d("propertyKey",propertyKey.get(1).toString() + " " + propertyKey.get(2).toString());
-                    tvPropertyKey.setText(propertyKey.get(1).toString() + " " + propertyKey.get(2).toString());
+                    Log.d("userAddress",userAddress + " " + userAddress);
+                    tvuserAddress.setText(userAddress);
 
                 } else {
                     startActivity(new Intent(getActivity(), SearchActivity.class));
