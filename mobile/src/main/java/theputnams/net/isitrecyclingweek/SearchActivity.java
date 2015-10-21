@@ -38,7 +38,6 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public class SearchActivity extends Activity {
@@ -89,23 +88,22 @@ public class SearchActivity extends Activity {
         EditText input_street_address = (EditText)findViewById(R.id.street_address);
         input_street_address.setFilters(new InputFilter[] { inputFilter });
         String string_street_address = input_street_address.getText().toString();
+        String implementationApiUrl = null;
 
         String http_payload = null;
         try {
-            String foo = getString(R.string.api_uri) + "/api/implementations?addr=" + URLEncoder.encode(string_street_address, "UTF-8");
-//FIXME need to parse this and store the implementation URL so we can call it over in the main view
-            http_payload = new WebAsyncTask().execute(foo).get();
+            String civicHackLocatorCall = getString(R.string.api_uri) + "/api/implementations?addr=" + URLEncoder.encode(string_street_address, "UTF-8");
+
+            http_payload = new WebAsyncTask().execute(civicHackLocatorCall).get();
 
             if (http_payload != null) {
-                Log.d("http_payload: ", http_payload);
                 JSONArray json_array = new JSONArray(http_payload);
-                Log.d("json_array: ", String.valueOf(json_array));
 
                 int length = json_array.length();
                 for (int i = 0; i < length; i++) {
                     JSONObject obj = json_array.getJSONObject(i);
-                    if (obj.getString("contractName") == "upcoming-garbage-recycling-dates") {
-                        Log.d("implementationApiUrl",obj.getString("implementationApiUrl"));
+                    if (obj.getString("contractName").equals("upcoming-garbage-recycling-dates")) {
+                        implementationApiUrl = obj.getString("implementationApiUrl");
                     }
                 }
 
@@ -123,28 +121,12 @@ public class SearchActivity extends Activity {
             e.printStackTrace();
         }
 
-        //get back implementationApiUrl
-
-        /*
-        [
-          {
-            "contractName": "upcoming-garbage-recycling-dates",
-            "contractDescription": "Returns upcoming dates for garbage and recycling collection",
-            "implementationName": "appleton-wi-garbage",
-            "homepageUrl": "http://appletonapi.appspot.com",
-            "implementationApiUrl": "http://appletonapi.appspot.com/garbagecollection"
-          }
-        ]
-        */
-
-        //example: "implementationApiUrl": "http://appletonapi.appspot.com/garbagecollection"
-        //make call to "implementationApiUrl"; get back...
-
-        //Try saving the user's choice for subsequent runs of the app
+        //Persist the address and accompanying civic data api endpoint
         try {
             SharedPreferences preferences = getSharedPreferences("recyclingWeek", MODE_PRIVATE);
             SharedPreferences.Editor edit = preferences.edit();
 
+            edit.putString("implementationApiUrl", implementationApiUrl);
             edit.putString("address", string_street_address);
             edit.commit();
 

@@ -59,6 +59,7 @@ public class GarbageAndOrRecycleActivity extends Activity {
         if (savedInstanceState == null) {
 
             SharedPreferences preferences = getSharedPreferences("recyclingWeek", MODE_PRIVATE);
+            GarbageAndOrRecycleFragment.ImplementationApiUrl = preferences.getString("implementationApiUrl", null);
             GarbageAndOrRecycleFragment.Address = preferences.getString("address", null);
 
             getFragmentManager().beginTransaction()
@@ -95,6 +96,7 @@ public class GarbageAndOrRecycleActivity extends Activity {
     public static class GarbageAndOrRecycleFragment extends Fragment {
 
         public static String Address;
+        public static String ImplementationApiUrl;
 
         public View view = null;
         public ImageView imageView = null;
@@ -106,9 +108,6 @@ public class GarbageAndOrRecycleActivity extends Activity {
         public GarbageAndOrRecycleFragment() {
         }
 
-        /*
-        Get users property selection from filesystem
-         */
         private String getStoredUserAddress() {
             String userAddress = null;
 
@@ -117,15 +116,32 @@ public class GarbageAndOrRecycleActivity extends Activity {
                 startActivity(new Intent(getActivity(), SearchActivity.class));
             } else {
 
-                //Fetch the user's stored address
                 try {
-                    userAddress = new String(Address);
+                    userAddress = Address;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
 
             return userAddress;
+        }
+
+        private String getStoredImplementationApiUrl() {
+            String url = null;
+
+            if (ImplementationApiUrl == null) {
+                //First time user, lets go over and set an initial location
+                startActivity(new Intent(getActivity(), SearchActivity.class));
+            } else {
+
+                try {
+                    url = ImplementationApiUrl;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            return url;
         }
 
         /*
@@ -137,13 +153,10 @@ public class GarbageAndOrRecycleActivity extends Activity {
 
             try {
                 if (userAddress != null) {
-                    //FIXME this needs to be derived from
-                    http_payload = new WebAsyncTask().execute("http://appletonapi.appspot.com/garbagecollection?addr=" + URLEncoder.encode(userAddress, "UTF-8")).get();
+                    http_payload = new WebAsyncTask().execute(ImplementationApiUrl +"?addr=" + URLEncoder.encode(userAddress, "UTF-8")).get();
                 }
                 Log.d("fetchData: ", http_payload);
-            } catch (ExecutionException | InterruptedException e) {
-                e.printStackTrace();
-            } catch (UnsupportedEncodingException e) {
+            } catch (ExecutionException | UnsupportedEncodingException | InterruptedException e) {
                 e.printStackTrace();
             }
 
@@ -220,7 +233,8 @@ public class GarbageAndOrRecycleActivity extends Activity {
         private void updateView() {
             try {
                 String userAddress = getStoredUserAddress();
-                if(userAddress != null) {
+                String implementationApiUrl = getStoredImplementationApiUrl();
+                if(userAddress != null && implementationApiUrl != null) {
                     JSONArray collectionSchedule = fetchData(userAddress);
 
 /*                    Date recycleDate = getRecycleDate(collectionSchedule);
@@ -275,7 +289,8 @@ public class GarbageAndOrRecycleActivity extends Activity {
                     }*/
 
                     //Display property depicted
-                    Log.d("userAddress",userAddress + " " + userAddress);
+                    Log.d("userAddress",userAddress);
+                    Log.d("implementationApiUrl",implementationApiUrl);
                     tvuserAddress.setText(userAddress);
 
                 } else {
