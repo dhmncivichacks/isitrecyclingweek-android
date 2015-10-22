@@ -167,52 +167,28 @@ public class GarbageAndOrRecycleActivity extends Activity {
         Using all the property data get the recycling date
          */
         private Date getRecycleDate(JSONArray propertyData) {
-/*
-[
-    {
-        "collectionDate": "2015-10-26",
-        "collectionType": "trash"
-    },
-    {
-        "collectionDate": "2015-11-02",
-        "collectionType": "trash"
-    },
-    {
-        "collectionDate": "2015-11-02",
-        "collectionType": "recycling"
-    }
-]
-*/
-            Date recycleDate = null;
 
-            //The chunk of json from the api that contains the recycling date string
-            JSONObject jsonRecyclingDate = null;
-            try {
-                jsonRecyclingDate = propertyData.getJSONObject(1);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            for (int i = 0; i < propertyData.length(); i++) {
+                try {
+                    JSONObject curResult = propertyData.getJSONObject(i);
 
-            //Turn "Monday, 04-06-2015" into "04-06-2015"
-            String stringRecycleDate = null;
-            try {
-                if (jsonRecyclingDate != null) {
-                    stringRecycleDate = jsonRecyclingDate.getString("recycleday").split(" ")[1];
+                    if (curResult.getString("collectionType").equals("recycling"))
+                    {
+                        SimpleDateFormat month_day_year = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+
+                        try {
+                            return month_day_year.parse(curResult.getString("collectionDate"));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            Log.d("recycleDate: ", stringRecycleDate);
-
-            SimpleDateFormat month_day_year = new SimpleDateFormat("MM-dd-yyyy", Locale.US);
-
-            try {
-                recycleDate = month_day_year.parse(stringRecycleDate);
-            } catch (ParseException e) {
-                e.printStackTrace();
             }
 
-            return recycleDate;
+            // What to do if we can't find a recycling date?
+            return null;
         }
 
         @Override
@@ -237,7 +213,7 @@ public class GarbageAndOrRecycleActivity extends Activity {
                 if(userAddress != null && implementationApiUrl != null) {
                     JSONArray collectionSchedule = fetchData(userAddress);
 
-/*                    Date recycleDate = getRecycleDate(collectionSchedule);
+                    Date recycleDate = getRecycleDate(collectionSchedule);
 
 
 
@@ -257,10 +233,10 @@ public class GarbageAndOrRecycleActivity extends Activity {
                         days_until_next_pickup = days_until_next_recycling_date;
                     }
 
-                    *//*
+                    /*
                     Upstream bumps the recycle date forward at 12am on recycle day.
                     This results in misrepresenting the actual day of pickup. :(
-                     *//*
+                     */
                     if (days_until_next_recycling_date.equals(Integer.valueOf(14)) || days_until_next_pickup.equals(Integer.valueOf(0))) {
                         tvNextPickup.setText(R.string.pickup_today);
                     } else if (days_until_next_pickup == 1) {
@@ -286,7 +262,7 @@ public class GarbageAndOrRecycleActivity extends Activity {
                         imageView.setImageResource(R.drawable.garbage_week_icon);
                         tvAnswerYesNope.setText(R.string.nope);
                         tvInstructions.setText(R.string.garbage_bin_only);
-                    }*/
+                    }
 
                     //Display property depicted
                     Log.d("userAddress",userAddress);
