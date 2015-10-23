@@ -14,24 +14,22 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-package theputnams.net.isitrecyclingweek;
+package theputnams.net.isitrecyclingweek.fragments;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.TextView;
 
+import theputnams.net.isitrecyclingweek.R;
 
-public class AboutActivity extends Activity {
+
+public class AboutFragment extends Fragment {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +40,6 @@ public class AboutActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        this.finish();
     }
 
     public static class PlaceholderFragment extends Fragment {
