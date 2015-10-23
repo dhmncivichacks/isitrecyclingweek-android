@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import theputnams.net.isitrecyclingweek.R;
 import theputnams.net.isitrecyclingweek.util.INavItem;
 import theputnams.net.isitrecyclingweek.util.NavItem;
+import theputnams.net.isitrecyclingweek.util.NavLocation;
 
 public class NavAdapter extends BaseAdapter
 {
@@ -30,8 +31,8 @@ public class NavAdapter extends BaseAdapter
     {
         mNavItems.clear();
 
-        mNavItems.add(new INavItem("Search"));
-        mNavItems.add(new INavItem("About"));
+        mNavItems.add(new INavItem(NavLocation.ABOUT));
+        mNavItems.add(new INavItem(NavLocation.SEARCH));
 
         notifyDataSetChanged();
     }
@@ -61,7 +62,7 @@ public class NavAdapter extends BaseAdapter
         NavItem nav = mNavItems.get(position);
         view = mInflater.inflate(R.layout.nav_item_clickable, null);
         ((TextView) view.findViewById(R.id.tv_nav_text))
-                .setText(nav.getText());
+                .setText(nav.getLocation().name());
         return view;
     }
 }

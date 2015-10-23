@@ -2,19 +2,20 @@ package theputnams.net.isitrecyclingweek.util;
 
 public class INavItem implements NavItem
 {
-    protected String text;
+    protected NavLocation location;
 
-    public INavItem(String text) {
-        this.text = text;
+    public INavItem(NavLocation location) {
+        this.location = location;
+    }
+
+
+    @Override
+    public NavLocation getLocation() {
+        return this.location;
     }
 
     @Override
-    public String getText() {
-        return this.text;
-    }
-
-    @Override
-    public void setText(String text) {
-        this.text = text;
+    public void setLocation(NavLocation location) {
+        this.location = location;
     }
 }
