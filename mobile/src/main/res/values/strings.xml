@@ -68,6 +68,6 @@
 <p><a href="https://cloud.google.com/appengine/">Google App Engine</a> for providing a generous free tier of their PaaS hosting.</p>
 
 ]]></string>
-
-
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
