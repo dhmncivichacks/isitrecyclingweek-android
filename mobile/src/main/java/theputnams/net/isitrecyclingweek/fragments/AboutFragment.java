@@ -16,7 +16,6 @@
 
 package theputnams.net.isitrecyclingweek.fragments;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Html;
@@ -26,35 +25,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import butterknife.ButterKnife;
+import butterknife.Bind;
 import theputnams.net.isitrecyclingweek.R;
 
-
 public class AboutFragment extends Fragment {
+    @Bind(R.id.textview_about) TextView mAbout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View aboutView = inflater.inflate(R.layout.fragment_about, container, false);
 
-    public static class PlaceholderFragment extends Fragment {
+        ButterKnife.bind(this, aboutView);
 
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.about_linear_layout, container, false);
-            TextView tvAbout = (TextView) view.findViewById(R.id.textview_about);
-            tvAbout.setMovementMethod(LinkMovementMethod.getInstance());
-            tvAbout.setText(Html.fromHtml(getResources().getString(R.string.textview_about)));
-            return view;
-        }
+        mAbout.setMovementMethod(LinkMovementMethod.getInstance());
+        mAbout.setText(Html.fromHtml(getResources().getString(R.string.textview_about)));
+        return aboutView;
     }
 }
