@@ -3,13 +3,14 @@ package theputnams.net.isitrecyclingweek.activities;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 
 
 import theputnams.net.isitrecyclingweek.R;
 import theputnams.net.isitrecyclingweek.fragments.AboutFragment;
 import theputnams.net.isitrecyclingweek.fragments.NavigationDrawerFragment;
+import theputnams.net.isitrecyclingweek.fragments.SettingsFragment;
 import theputnams.net.isitrecyclingweek.util.NavItem;
 import theputnams.net.isitrecyclingweek.util.NavLocation;
 
@@ -18,11 +19,21 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     private CharSequence mTitle;
 
+    protected NavigationDrawerFragment mNavigationDrawerFragment;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);// set the activity
-        String x;
+        this.mNavigationDrawerFragment = ((NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer));
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        // Set up the drawer.
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
     @Override
@@ -37,9 +48,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             fragment = getFragmentByNavLocation(navItem.getLocation());
         }
 
-        final FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.content_frame, new AboutFragment(), navItem.getLocation().name());
-        ft.commit();
+        setTitle(navItem.getLocation().name());
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.content_frame, fragment, navItem.getLocation().name())
+                .addToBackStack(null)
+                .commit();
     }
 
     public Fragment getFragmentByNavLocation(NavLocation location) {
@@ -47,8 +61,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         switch(location) {
             case ABOUT:
                 return new AboutFragment();
-            case SEARCH:
-                return new AboutFragment();
+            case SETTINGS:
+                return new SettingsFragment();
             default:
                 throw new IllegalArgumentException("Invalid location");
         }
