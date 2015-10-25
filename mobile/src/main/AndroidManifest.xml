@@ -39,14 +39,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SearchActivity"
-            android:label="@string/title_activity_search" >
-        </activity>
-        <activity
-            android:name=".SearchResultListActivity"
-            android:label="@string/title_activity_search_result" >
-        </activity>
-        <activity
             android:name=".fragments.AboutFragment"
             android:label="@string/title_activity_about" >
         </activity>
