@@ -1,7 +1,7 @@
 package theputnams.net.isitrecyclingweek.util;
 
 public interface NavItem {
-    public NavLocation getLocation();
+    NavLocation getLocation();
 
-    public void setLocation(NavLocation location);
+    void setLocation(NavLocation location);
 }

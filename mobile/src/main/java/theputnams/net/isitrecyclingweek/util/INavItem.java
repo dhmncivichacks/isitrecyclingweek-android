@@ -8,7 +8,6 @@ public class INavItem implements NavItem
         this.location = location;
     }
 
-
     @Override
     public NavLocation getLocation() {
         return this.location;

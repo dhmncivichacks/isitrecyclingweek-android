@@ -16,8 +16,8 @@ import theputnams.net.isitrecyclingweek.util.NavLocation;
 
 public class NavAdapter extends BaseAdapter
 {
-    private ArrayList<NavItem> mNavItems;                              //List of NavItems that can be selected/their data
-    private LayoutInflater mInflater;                               //LayoutInflater for inflating individual items
+    private ArrayList<NavItem> mNavItems;
+    private LayoutInflater mInflater;
 
     public NavAdapter(Fragment fragment)
     {
@@ -32,7 +32,7 @@ public class NavAdapter extends BaseAdapter
         mNavItems.clear();
 
         mNavItems.add(new INavItem(NavLocation.ABOUT));
-        mNavItems.add(new INavItem(NavLocation.SEARCH));
+        mNavItems.add(new INavItem(NavLocation.SETTINGS));
 
         notifyDataSetChanged();
     }
@@ -58,7 +58,7 @@ public class NavAdapter extends BaseAdapter
     @Override
     public View getView(int position, View view, ViewGroup viewGroup)
     {
-        // Should be View Holder pattern but there aren't enough items for it to matter.
+        // ToDo Should be view holder pattern but there aren't many items so it won't hurt us
         NavItem nav = mNavItems.get(position);
         view = mInflater.inflate(R.layout.nav_item_clickable, null);
         ((TextView) view.findViewById(R.id.tv_nav_text))
