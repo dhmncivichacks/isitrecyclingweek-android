@@ -9,5 +9,4 @@
     android:headerDividersEnabled="true"
     android:scrollbars="none"
     android:dividerHeight="0dp"
-    android:background="@color/white"
-    tools:context="com.smartsocialmedia.connect.NavigationDrawerFragment" />
+    android:background="@color/white"/>
