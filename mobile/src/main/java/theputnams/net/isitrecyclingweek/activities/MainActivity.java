@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import theputnams.net.isitrecyclingweek.R;
 import theputnams.net.isitrecyclingweek.fragments.AboutFragment;
 import theputnams.net.isitrecyclingweek.fragments.NavigationDrawerFragment;
+import theputnams.net.isitrecyclingweek.fragments.RecyclingInfoFragment;
 import theputnams.net.isitrecyclingweek.fragments.SettingsFragment;
 import theputnams.net.isitrecyclingweek.util.NavItem;
 import theputnams.net.isitrecyclingweek.util.NavLocation;
@@ -63,6 +64,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 return new AboutFragment();
             case SETTINGS:
                 return new SettingsFragment();
+            case RECYCLING_INFO:
+                return new RecyclingInfoFragment();
             default:
                 throw new IllegalArgumentException("Invalid location");
         }
