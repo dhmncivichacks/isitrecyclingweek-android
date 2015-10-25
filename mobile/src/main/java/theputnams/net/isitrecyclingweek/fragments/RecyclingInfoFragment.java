@@ -59,6 +59,7 @@ public class RecyclingInfoFragment extends Fragment {
 
         if (address == null || api_url == null) {
             // We're in a bad state... have them update settings
+            //ToDo We cannot handle the multiple api end points at the moment because of how they are pathed combined with the contract values
             mRecyclingText.setText(getString(R.string.error_missing_data));
         }
 
