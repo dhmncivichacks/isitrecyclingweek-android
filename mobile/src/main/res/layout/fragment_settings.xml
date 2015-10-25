@@ -22,7 +22,7 @@
 
     <EditText
         android:id="@+id/house_number"
-        android:hint="House Number (ex 2113)"
+        android:hint="@string/house_number_hint"
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_marginBottom="5dp"
@@ -30,7 +30,7 @@
 
     <EditText
         android:id="@+id/street_name"
-        android:hint="Street Name (ex Main Street)"
+        android:hint="@string/street_name_hint"
         android:layout_width="match_parent"
         android:layout_marginBottom="5dp"
         android:layout_height="wrap_content" />
