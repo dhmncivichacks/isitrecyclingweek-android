@@ -18,13 +18,13 @@
 <resources>
 
     <string name="app_name">Is it recycling week?</string>
-    <string name="put_out_the_recycling_bin">Put out both garbage and recycling.</string>
+    <string name="put_out_the_recycling_bin">Put out both garbage and recycling on %1$s. </string>
     <string name="yes">Yes!</string>
-    <string name="nope">Nope.</string>
-    <string name="garbage_bin_only">Only put out the garbage.</string>
+    <string name="nope">Nope!</string>
+    <string name="garbage_bin_only">Only put out the garbage on %1$s.</string>
     <string name="pickup_today">Pickup today.</string>
     <string name="pickup_tomorrow">Pickup tomorrow.</string>
-    <string name="pickup_in_n_days">Next pickup in %1$d days.</string>
+    <string name="pickup_in_n_days">Next pickup on %1$s.</string>
     <string name="image_of_containers">Image of containers.</string>
     <string name="action_setlocation">Set location</string>
     <string name="title_activity_search">Set Location</string>
@@ -73,4 +73,7 @@
     <string name="address_updated">Address updated successfully</string>
     <string name="error_internal_server_error">Internal Server Error</string>
     <string name="error_required_field">This field is required</string>
+    <string name="street_name_hint">Street Name (ex Douglas Street)</string>
+    <string name="house_number_hint">House Number (ex 2113)</string>
+    <string name="error_missing_data">We\'re missing some data... Try updating your information on the settings screen.</string>
 </resources>
