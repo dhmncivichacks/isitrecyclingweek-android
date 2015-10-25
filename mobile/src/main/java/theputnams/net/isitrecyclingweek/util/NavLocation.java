@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 public enum NavLocation {
     ABOUT("About"),
     SETTINGS("Settings"),
-    RECYCLING_INFO("Recycling info");
+    RECYCLING_INFO("Recycling Info");
 
     NavLocation(String name) {
         try {
