@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_settings">SETTINGS</string>
     <string name="pref_address">PREF_ADDRESS</string>
-    <string name="api_url">PREF_API_URL</string>
+    <string name="pref_api_url">PREF_API_URL</string>
 </resources>
