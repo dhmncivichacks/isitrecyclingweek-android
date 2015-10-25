@@ -33,6 +33,7 @@ public class NavAdapter extends BaseAdapter
 
         mNavItems.add(new INavItem(NavLocation.ABOUT));
         mNavItems.add(new INavItem(NavLocation.SETTINGS));
+        mNavItems.add(new INavItem(NavLocation.RECYCLING_INFO));
 
         notifyDataSetChanged();
     }
