@@ -28,7 +28,7 @@
     <string name="image_of_containers">Image of containers.</string>
     <string name="action_setlocation">Set location</string>
     <string name="title_activity_search">Set Location</string>
-    <string name="enter_zip_code">Enter Zip Code</string>
+    <string name="enter_zip_code">Enter Zip Code (ex 54911)</string>
     <string name="button_save">Save</string>
     <string name="title_activity_search_result">Set Location</string>
     <string name="title_activity_about">About</string>
