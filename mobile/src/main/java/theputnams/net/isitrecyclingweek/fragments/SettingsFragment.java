@@ -75,9 +75,6 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
                     address.append(" " + mStreetName.getText().toString());
                     address.append(" " + mZipCode.getText().toString());
 
-//                    SharedPreferences prefs = getActivity().getSharedPreferences(
-//                            getString(R.string.pref_settings), Context.MODE_PRIVATE);
-
                     SharedPreferences.Editor editor = getActivity().getSharedPreferences(getString(R.string.pref_settings), Context.MODE_PRIVATE).edit();
 
                     // ToDo Replace this with an ORM
