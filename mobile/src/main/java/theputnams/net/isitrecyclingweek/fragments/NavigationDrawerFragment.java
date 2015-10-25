@@ -50,7 +50,7 @@ public class NavigationDrawerFragment extends Fragment
     private ListView mDrawerListView;
     private View mFragmentContainerView;
 
-    private int mCurrentSelectedPosition = 1;
+    private int mCurrentSelectedPosition = 2;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
 
@@ -272,7 +272,6 @@ public class NavigationDrawerFragment extends Fragment
         ActionBar actionBar = getActivity().getActionBar();
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(R.string.app_name);
-        //actionBar.setSubtitle(R.string.wall_title);
     }
 
     //Interface to force implementation in calling activity
