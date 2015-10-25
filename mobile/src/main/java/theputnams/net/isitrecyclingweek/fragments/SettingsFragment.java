@@ -72,17 +72,17 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
 
                 if (apiContracts.length > 0) {
                     StringBuilder address = new StringBuilder(mHouseNumber.getText().toString());
-                    address.append(mStreetName.getText().toString());
-                    address.append(mZipCode.getText().toString());
+                    address.append(" " + mStreetName.getText().toString());
+                    address.append(" " + mZipCode.getText().toString());
 
                     SharedPreferences prefs = getActivity().getSharedPreferences(
-                            getString(R.string.pref_address), Context.MODE_PRIVATE);
+                            getString(R.string.pref_settings), Context.MODE_PRIVATE);
 
                     // ToDo Replace this with an ORM
                     // Save the address in prefs
                     prefs.edit().putString(getString(R.string.pref_address), address.toString()).apply();
                     // Save the api url in prefs
-                    prefs.edit().putString(getString(R.string.api_url), apiContracts[0].getImplementationApiUrl());
+                    prefs.edit().putString(getString(R.string.pref_api_url), apiContracts[0].getImplementationApiUrl());
                     Toast.makeText(getActivity(), R.string.address_updated, Toast.LENGTH_LONG).show();
 
                 } else {
