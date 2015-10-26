@@ -21,7 +21,7 @@
     <string name="app_name">Is it recycling week?</string>
     <string name="put_out_the_recycling_bin">Put out both garbage and recycling on %1$s. </string>
     <string name="yes">Yes!</string>
-    <string name="nope">Nope!</string>
+    <string name="nope">Nope.</string>
     <string name="garbage_bin_only">Only put out the garbage on %1$s.</string>
     <string name="pickup_today">Pickup today.</string>
     <string name="pickup_tomorrow">Pickup tomorrow.</string>
@@ -29,7 +29,7 @@
     <string name="image_of_containers">Image of containers.</string>
     <string name="action_setlocation">Set location</string>
     <string name="title_activity_search">Set Location</string>
-    <string name="enter_zip_code">Enter Zip Code (ex 54911)</string>
+    <string name="enter_zip_code">Zip Code (ex: 54911)</string>
     <string name="button_save">Save</string>
     <string name="title_activity_search_result">Set Location</string>
     <string name="title_activity_about">About</string>
@@ -42,10 +42,11 @@
 
 <p>
 <i><b>Android app Contributors:</b></i>
-<br/>Jacob Kiser
-<br/>Chris Jaure
-<br/>Dan Gabrielson
-<br/>David Kieffer
+<br/>Chris Jaure - Testing, feature ideas, Github issues
+<br/>Dan Gabrielson - Java help, testing, and pairing.
+<br/>David Kieffer - Art, testing, UX feedback.
+<br/>Jacob Kiser - Major re-write improving code organization and navigation.
+<br/>Mike Putnam - Original version, deployment.
 </p>
 
 <p>
@@ -75,7 +76,7 @@
     <string name="address_updated">Address updated successfully</string>
     <string name="error_internal_server_error">Internal Server Error</string>
     <string name="error_required_field">This field is required</string>
-    <string name="street_name_hint">Street Name (ex Douglas Street)</string>
-    <string name="house_number_hint">House Number (ex 2113)</string>
-    <string name="error_missing_data">We\'re missing some data... Try updating your information on the settings screen.</string>
+    <string name="street_name_hint">Street Name (ex: N Appleton St)</string>
+    <string name="house_number_hint">House Number (ex: 100)</string>
+    <string name="error_missing_data">We need an address to lookup... Set an address by swiping the left edge or tapping the logo.</string>
 </resources>
