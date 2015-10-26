@@ -15,7 +15,7 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-ackage theputnams.net.isitrecyclingweek.fragments;
+package theputnams.net.isitrecyclingweek.fragments;
 
 import android.app.Fragment;
 import android.content.Context;
