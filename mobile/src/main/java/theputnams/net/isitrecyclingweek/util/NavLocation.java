@@ -21,8 +21,8 @@ import java.lang.reflect.Field;
 
 public enum NavLocation {
     ABOUT("About"),
-    SETTINGS("Settings"),
-    RECYCLING_INFO("Recycling Info");
+    SETTINGS("Set Address"),
+    RECYCLING_INFO("Is it recycling week?");
 
     NavLocation(String name) {
         try {
