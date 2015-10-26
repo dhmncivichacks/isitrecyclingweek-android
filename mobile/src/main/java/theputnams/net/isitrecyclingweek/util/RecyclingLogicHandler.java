@@ -85,7 +85,7 @@ public class RecyclingLogicHandler {
 
     public String getPickUpDate() {
         if (this.getGarbageEvent() != null) {
-            return new SimpleDateFormat("dd/MM/yyyy").format(this.getGarbageEvent().getCollectionDate());
+            return new SimpleDateFormat("MM/dd/yyyy").format(this.getGarbageEvent().getCollectionDate());
         } else return "";
     }
 }
