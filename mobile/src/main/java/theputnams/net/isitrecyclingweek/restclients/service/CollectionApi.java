@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2015 Mike Putnam <mike@theputnams.net>
+ * Copyright (c) 2015 Jake Kiser <jacobvkiser@gmail.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -14,22 +15,19 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+package theputnams.net.isitrecyclingweek.restclients.service;
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.3.0'
+import retrofit.Callback;
+import retrofit.http.GET;
+import retrofit.http.Query;
+import theputnams.net.isitrecyclingweek.restclients.model.CollectionEvent;
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
+/**
+ * This is the api that talks to @mikeputnam's scraper
+ * http://appletonapi.appspot.com/
+ */
+public interface CollectionApi {
 
-allprojects {
-    repositories {
-        jcenter()
-    }
+    @GET("/garbagecollection")
+    void getCollectionDates(@Query("addr") String Address, Callback<CollectionEvent[]> cb);
 }

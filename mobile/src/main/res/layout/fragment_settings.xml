@@ -1,0 +1,55 @@
+<!--
+  ~ Copyright (c) 2015 Mike Putnam <mike@theputnams.net>
+  ~
+  ~ Permission to use, copy, modify, and distribute this software for any
+  ~ purpose with or without fee is hereby granted, provided that the above
+  ~ copyright notice and this permission notice appear in all copies.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+  ~ WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+  ~ MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+  ~ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+  ~ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+  ~ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+  ~ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+  -->
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditText
+        android:id="@+id/house_number"
+        android:hint="@string/house_number_hint"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/street_name"
+        android:hint="@string/street_name_hint"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/zip_code"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_zip_code"
+        android:layout_marginBottom="5dp"
+        android:maxLength="50"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_save"
+        android:id="@+id/save"
+        android:background="@drawable/nav_background"
+        android:textColor="@drawable/nav_text"
+        android:layout_marginLeft="5dp"/>
+</LinearLayout>

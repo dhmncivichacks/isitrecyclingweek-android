@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2015 Mike Putnam <mike@theputnams.net>
+ * Copyright (c) 2015 Jake Kiser <jacobvkiser@gmail.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -14,22 +15,10 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+package theputnams.net.isitrecyclingweek.util;
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.3.0'
+public interface NavItem {
+    NavLocation getLocation();
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
-
-allprojects {
-    repositories {
-        jcenter()
-    }
+    void setLocation(NavLocation location);
 }

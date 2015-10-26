@@ -10,7 +10,7 @@ This is a client app for the [AppletonAPI](https://github.com/dhmncivichacks/app
 
 Available on the Google Play store: [Is it recycling week?](https://play.google.com/store/apps/details?id=theputnams.net.isitrecyclingweek)
 
-![Set Location](/screenshots/2015-07-26_5554_Nexus_4_API_21_004_450px.png)![Pick from results](/screenshots/2015-07-26_5554_Nexus_4_API_21_005_450px.png)![Yes recycling](/screenshots/2015-07-26_5554_Nexus_4_API_21_003_450px.png)
+![About info](/screenshots/about_screenshot.png)![Recycling Info](/screenshots/info_screenshot.png)![Settings](/screenshots/settings_screenshot.png)![Nav Pic](/screenshots/nav_screenshot.png)
 ##Goals:
 
 * Do one thing, do it well. Resist the temptation to grow the features/purpose of the app to include more than determining if it is recycling week. If some other municipal data app would be useful, create a separate app.

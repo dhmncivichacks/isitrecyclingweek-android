@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (c) 2015 Mike Putnam <mike@theputnams.net>
+  ~ Copyright (c) 2015 Jake Kiser <jacobvkiser@gmail.com>
   ~
   ~ Permission to use, copy, modify, and distribute this software for any
   ~ purpose with or without fee is hereby granted, provided that the above
@@ -18,19 +19,18 @@
 <resources>
 
     <string name="app_name">Is it recycling week?</string>
-    <string name="api_uri">http://3-0.appletonapi.appspot.com</string>
-    <string name="put_out_the_recycling_bin">Put out both garbage and recycling.</string>
+    <string name="put_out_the_recycling_bin">Put out both garbage and recycling on %1$s. </string>
     <string name="yes">Yes!</string>
-    <string name="nope">Nope.</string>
-    <string name="garbage_bin_only">Only put out the garbage.</string>
+    <string name="nope">Nope!</string>
+    <string name="garbage_bin_only">Only put out the garbage on %1$s.</string>
     <string name="pickup_today">Pickup today.</string>
     <string name="pickup_tomorrow">Pickup tomorrow.</string>
-    <string name="pickup_in_n_days">Next pickup in %1$d days.</string>
+    <string name="pickup_in_n_days">Next pickup on %1$s.</string>
     <string name="image_of_containers">Image of containers.</string>
     <string name="action_setlocation">Set location</string>
     <string name="title_activity_search">Set Location</string>
-    <string name="textview_street_address">Street Address</string>
-    <string name="button_search">Search</string>
+    <string name="enter_zip_code">Enter Zip Code (ex 54911)</string>
+    <string name="button_save">Save</string>
     <string name="title_activity_search_result">Set Location</string>
     <string name="title_activity_about">About</string>
     <string name="textview_about"><![CDATA[
@@ -42,6 +42,7 @@
 
 <p>
 <i><b>Android app Contributors:</b></i>
+<br/>Jacob Kiser
 <br/>Chris Jaure
 <br/>Dan Gabrielson
 <br/>David Kieffer
@@ -68,6 +69,13 @@
 <p><a href="https://cloud.google.com/appengine/">Google App Engine</a> for providing a generous free tier of their PaaS hosting.</p>
 
 ]]></string>
-
-
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="service_not_available">We\'re sorry. This service is not available in your area</string>
+    <string name="address_updated">Address updated successfully</string>
+    <string name="error_internal_server_error">Internal Server Error</string>
+    <string name="error_required_field">This field is required</string>
+    <string name="street_name_hint">Street Name (ex Douglas Street)</string>
+    <string name="house_number_hint">House Number (ex 2113)</string>
+    <string name="error_missing_data">We\'re missing some data... Try updating your information on the settings screen.</string>
 </resources>
