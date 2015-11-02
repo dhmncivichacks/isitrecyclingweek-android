@@ -72,17 +72,18 @@ public class RecyclingInfoFragment extends Fragment {
     protected void updateViewData() {
         SharedPreferences prefs = getActivity().getSharedPreferences(getString(R.string.pref_settings), Context.MODE_PRIVATE);
         String address = prefs.getString(getString(R.string.pref_address), null);
-        String api_url = prefs.getString(getString(R.string.pref_api_url), null);
+        String api_base_url = prefs.getString(getString(R.string.pref_api_base_url), null);
+        String api_path = prefs.getString(getString(R.string.pref_api_path), null);
 
-        if (address == null || api_url == null) {
+        if (address == null || api_base_url == null || api_path == null) {
             // We're in a bad state... have them update settings
             //ToDo We cannot handle the multiple api end points at the moment because of how they are pathed combined with the contract values
             mRecyclingText.setText(getString(R.string.error_missing_data));
         }
 
         try {
-            String encodedAddress = URLEncoder.encode(address);
-            ApiService.getCollectionApi().getCollectionDates(encodedAddress, new Callback<CollectionEvent[]>() {
+            String encodedAddress = URLEncoder.encode(address,"UTF-8");
+            ApiService.getCollectionApi(api_base_url).getCollectionDates(api_path + "?addr=" + encodedAddress, new Callback<CollectionEvent[]>() {
 
                 @Override
                 public void success(CollectionEvent[] collectionEvents, retrofit.client.Response response) {

@@ -31,6 +31,10 @@ public class APIContract {
     private String homepageUrl;
     @Expose
     private String implementationApiUrl;
+    @Expose
+    private String implementationBaseUrl;
+    @Expose
+    private String implementationPath;
 
     public String getContractName() {
         return contractName;
@@ -70,5 +74,17 @@ public class APIContract {
 
     public void setImplementationApiUrl(String implementationApiUrl) {
         this.implementationApiUrl = implementationApiUrl;
+    }
+
+    public String getImplementationBaseUrl() { return implementationBaseUrl; }
+
+    public void setImplementationBaseUrl(String implementationBaseUrl) {
+        this.implementationBaseUrl = implementationBaseUrl;
+    }
+
+    public String getImplementationPath() { return implementationPath; }
+
+    public void setImplementationPath(String implementationPath) {
+        this.implementationPath = implementationPath;
     }
 }

@@ -21,16 +21,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <EditText
-        android:id="@+id/house_number"
-        android:hint="@string/house_number_hint"
-        android:inputType="number"
+        android:id="@+id/street_address"
+        android:hint="@string/street_address_hint"
         android:layout_width="match_parent"
         android:layout_marginBottom="5dp"
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/street_name"
-        android:hint="@string/street_name_hint"
+        android:id="@+id/city_state"
+        android:hint="@string/city_state_hint"
         android:layout_width="match_parent"
         android:layout_marginBottom="5dp"
         android:layout_height="wrap_content" />
@@ -40,7 +39,7 @@
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_zip_code"
+        android:hint="@string/zip_hint"
         android:layout_marginBottom="5dp"
         android:maxLength="50"/>
 
