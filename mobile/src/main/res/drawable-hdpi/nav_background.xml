@@ -5,7 +5,7 @@
     <item android:state_pressed="false">
         <shape>
             <!--this is the center color -->
-            <solid android:color="@color/green" />
+            <solid android:color="#000000" />
             <!--this handles the border-->
             <stroke
                 android:width="0.5dp"
@@ -20,7 +20,7 @@
             <!--this handles the border-->
             <stroke
                 android:width="0.5dp"
-                android:color="@color/green" />
+                android:color="#000000" />
         </shape>
     </item>
 </selector>
