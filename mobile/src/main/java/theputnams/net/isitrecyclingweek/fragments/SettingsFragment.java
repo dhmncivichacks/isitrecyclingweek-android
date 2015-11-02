@@ -98,7 +98,8 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
                     // Save the address in prefs
                     editor.putString(getString(R.string.pref_address), address.toString());
                     // Save the api url in prefs
-                    editor.putString(getString(R.string.pref_api_url), apiContracts[0].getImplementationApiUrl());
+                    editor.putString(getString(R.string.pref_api_base_url), apiContracts[0].getImplementationBaseUrl());
+                    editor.putString(getString(R.string.pref_api_path), apiContracts[0].getImplementationPath());
                     editor.commit();
 
                     Toast.makeText(getActivity(), R.string.address_updated, Toast.LENGTH_LONG).show();

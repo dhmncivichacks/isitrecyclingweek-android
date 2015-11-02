@@ -49,12 +49,11 @@ public class ApiService {
         return mContractRestAdapter.create(ContractApi.class);
     }
 
-    public static CollectionApi getCollectionApi() {
-        String url = "http://appletonapi.appspot.com";
+    public static CollectionApi getCollectionApi(String api_url) {
 
         if (mCollectionRestAdapter == null) {
             mCollectionRestAdapter = new RestAdapter.Builder()
-                    .setEndpoint(url)
+                    .setEndpoint(api_url)
                     .setConverter(new GsonConverter(gson))
                     .build();
         }
