@@ -55,13 +55,13 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
     @Bind(R.id.save)
     Button mSaveButton;
 
-    @Bind(R.id.house_number)
+    @Bind(R.id.street_address)
     @NotEmpty
-    EditText mHouseNumber;
+    EditText mStreetAddress;
 
-    @Bind(R.id.street_name)
+    @Bind(R.id.city_state)
     @NotEmpty
-    EditText mStreetName;
+    EditText mCityState;
 
     Validator mValidator;
 
@@ -88,8 +88,8 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
             public void success(APIContract[] apiContracts, retrofit.client.Response response) {
 
                 if (apiContracts.length > 0) {
-                    StringBuilder address = new StringBuilder(mHouseNumber.getText().toString());
-                    address.append(" " + mStreetName.getText().toString());
+                    StringBuilder address = new StringBuilder(mStreetAddress.getText().toString());
+                    address.append(" " + mCityState.getText().toString());
                     address.append(" " + mZipCode.getText().toString());
 
                     SharedPreferences.Editor editor = getActivity().getSharedPreferences(getString(R.string.pref_settings), Context.MODE_PRIVATE).edit();

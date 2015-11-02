@@ -29,7 +29,6 @@
     <string name="image_of_containers">Image of containers.</string>
     <string name="action_setlocation">Set location</string>
     <string name="title_activity_search">Set Location</string>
-    <string name="enter_zip_code">Zip Code (ex: 54911)</string>
     <string name="button_save">Save</string>
     <string name="title_activity_search_result">Set Location</string>
     <string name="title_activity_about">About</string>
@@ -76,7 +75,8 @@
     <string name="address_updated">Address updated successfully</string>
     <string name="error_internal_server_error">Internal Server Error</string>
     <string name="error_required_field">This field is required</string>
-    <string name="street_name_hint">Street Name (ex: N Appleton St)</string>
-    <string name="house_number_hint">House Number (ex: 100)</string>
-    <string name="error_missing_data">We need an address to lookup... Set an address by swiping the left edge or tapping the logo.</string>
+    <string name="street_address_hint">Address (ex: 123 N Main St)</string>
+    <string name="city_state_hint">City State (ex: Appleton WI)</string>
+    <string name="zip_hint">Zip Code (ex: 54911)</string>
+    <string name="error_missing_data">Set an address by swiping the left edge or tapping the logo.</string>
 </resources>
