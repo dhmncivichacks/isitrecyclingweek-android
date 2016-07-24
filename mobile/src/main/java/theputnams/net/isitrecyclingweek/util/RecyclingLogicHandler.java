@@ -70,12 +70,16 @@ public class RecyclingLogicHandler {
             }
         });
 
-        this.garbageEvent = sortedEvents.get(0);
-        CollectionEvent recycling = sortedEvents.get(1);
-        if (recycling != null &&
-                this.garbageEvent != null &&
-                recycling.getCollectionDate().compareTo(garbageEvent.getCollectionDate()) == 0) {
-            this.recyclingEvent = recycling;
+        if (sortedEvents.size() > 0) {
+            this.garbageEvent = sortedEvents.get(0);
+            if (sortedEvents.size() > 1) {
+                CollectionEvent recycling = sortedEvents.get(1);
+                if (recycling != null &&
+                        this.garbageEvent != null &&
+                        recycling.getCollectionDate().compareTo(garbageEvent.getCollectionDate()) == 0) {
+                    this.recyclingEvent = recycling;
+                }
+            }
         }
     }
 
