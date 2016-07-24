@@ -39,6 +39,7 @@ import butterknife.Bind;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import theputnams.net.isitrecyclingweek.R;
+import theputnams.net.isitrecyclingweek.activities.MainActivity;
 import theputnams.net.isitrecyclingweek.restclients.model.APIContract;
 import theputnams.net.isitrecyclingweek.restclients.service.ApiService;
 
@@ -67,7 +68,6 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View searchView = inflater.inflate(R.layout.fragment_settings, container, false);
         ButterKnife.bind(this, searchView);
         mValidator = new Validator(this);
@@ -103,6 +103,9 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
                     editor.commit();
 
                     Toast.makeText(getActivity(), R.string.address_updated, Toast.LENGTH_LONG).show();
+
+                    //Just send them over to the recycling info fragment
+                    ((MainActivity) SettingsFragment.this.getActivity()).onNavigationDrawerItemSelected(2);
 
                 } else {
                     Toast.makeText(getActivity(), R.string.service_not_available, Toast.LENGTH_LONG).show();

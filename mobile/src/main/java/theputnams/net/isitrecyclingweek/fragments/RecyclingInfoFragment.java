@@ -88,21 +88,25 @@ public class RecyclingInfoFragment extends Fragment {
                 @Override
                 public void success(CollectionEvent[] collectionEvents, retrofit.client.Response response) {
 
-                    RecyclingLogicHandler logicHandler = new RecyclingLogicHandler(collectionEvents);
-                    if (logicHandler.isRecyclingWeek()) {
-                        mRecyclingImage.setImageResource(R.drawable.recycling_week_icon);
-                        mRecyclingMessage.setText(getString(R.string.yes));
-                        String recyclingText = getString(R.string.put_out_the_recycling_bin);
-                        recyclingText = String.format(recyclingText, logicHandler.getPickUpDate());
-                        mRecyclingText.setText(recyclingText);
+                    if (collectionEvents.length > 0 ) {
+                        RecyclingLogicHandler logicHandler = new RecyclingLogicHandler(collectionEvents);
+                        if (logicHandler.isRecyclingWeek()) {
+                            mRecyclingImage.setImageResource(R.drawable.recycling_week_icon);
+                            mRecyclingMessage.setText(getString(R.string.yes));
+                            String recyclingText = getString(R.string.put_out_the_recycling_bin);
+                            recyclingText = String.format(recyclingText, logicHandler.getPickUpDate());
+                            mRecyclingText.setText(recyclingText);
+                        } else {
+                            mRecyclingImage.setImageResource(R.drawable.garbage_week_icon);
+                            mRecyclingMessage.setText(getString(R.string.nope));
+                            String recyclingText = getString(R.string.garbage_bin_only);
+                            recyclingText = String.format(recyclingText, logicHandler.getPickUpDate());
+                            mRecyclingText.setText(recyclingText);
+                        }
                     } else {
-                        mRecyclingImage.setImageResource(R.drawable.garbage_week_icon);
-                        mRecyclingMessage.setText(getString(R.string.nope));
-                        String recyclingText = getString(R.string.garbage_bin_only);
-                        recyclingText = String.format(recyclingText, logicHandler.getPickUpDate());
-                        mRecyclingText.setText(recyclingText);
+                        Toast.makeText(getActivity(), "Sorry! We couldn't find that address. :(", Toast.LENGTH_LONG).show();
                     }
-                }
+               }
 
                 @Override
                 public void failure(RetrofitError error) {
