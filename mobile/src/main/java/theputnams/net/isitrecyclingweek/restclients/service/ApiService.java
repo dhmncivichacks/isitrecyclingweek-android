@@ -49,14 +49,12 @@ public class ApiService {
         return mContractRestAdapter.create(ContractApi.class);
     }
 
-    public static CollectionApi getCollectionApi(String api_url) {
+    public static CollectionApi getCollectionApi(String apiUrl) {
 
-        if (mCollectionRestAdapter == null) {
-            mCollectionRestAdapter = new RestAdapter.Builder()
-                    .setEndpoint(api_url)
-                    .setConverter(new GsonConverter(gson))
-                    .build();
-        }
+        mCollectionRestAdapter = new RestAdapter.Builder()
+                .setEndpoint(apiUrl)
+                .setConverter(new GsonConverter(gson))
+                .build();
 
         return mCollectionRestAdapter.create(CollectionApi.class);
     }
