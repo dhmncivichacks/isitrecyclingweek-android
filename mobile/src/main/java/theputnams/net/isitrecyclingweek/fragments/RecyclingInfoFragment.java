@@ -29,7 +29,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -104,7 +103,7 @@ public class RecyclingInfoFragment extends Fragment {
                             mRecyclingText.setText(recyclingText);
                         }
                     } else {
-                        Toast.makeText(getActivity(), "Sorry! We couldn't find that address. :(", Toast.LENGTH_LONG).show();
+                        mRecyclingText.setText("Sorry! We couldn't find that address. :(");
                     }
                }
 

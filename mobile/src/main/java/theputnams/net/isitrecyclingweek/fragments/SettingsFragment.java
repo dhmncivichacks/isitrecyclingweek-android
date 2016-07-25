@@ -17,6 +17,7 @@
 
 package theputnams.net.isitrecyclingweek.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -24,6 +25,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -103,6 +105,11 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
                     editor.commit();
 
                     Toast.makeText(getActivity(), R.string.address_updated, Toast.LENGTH_LONG).show();
+
+                    //Close orphaned soft-keyboard
+                    InputMethodManager input = (InputMethodManager) getActivity()
+                            .getSystemService(Activity.INPUT_METHOD_SERVICE);
+                    input.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
 
                     //Just send them over to the recycling info fragment
                     ((MainActivity) SettingsFragment.this.getActivity()).onNavigationDrawerItemSelected(2);
