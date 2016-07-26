@@ -47,8 +47,14 @@ public class RecyclingInfoFragment extends Fragment {
     @Bind(R.id.recycling_text)
     TextView mRecyclingText;
 
+    @Bind(R.id.recycling_time_frame)
+    TextView mRecyclingTimeFrame;
+
     @Bind(R.id.recycling_image)
     ImageView mRecyclingImage;
+
+    @Bind(R.id.recycling_meta)
+    TextView mRecyclingMeta;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -102,6 +108,8 @@ public class RecyclingInfoFragment extends Fragment {
                             recyclingText = String.format(recyclingText, logicHandler.getPickUpDate());
                             mRecyclingText.setText(recyclingText);
                         }
+                        mRecyclingTimeFrame.setText("FIXME timeframe goes here");
+                        mRecyclingMeta.setText("FIXME data asof and address goes here");
                     } else {
                         mRecyclingText.setText("Sorry! We couldn't find that address. :(");
                     }

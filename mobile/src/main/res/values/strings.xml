@@ -25,7 +25,7 @@
     <string name="garbage_bin_only">Only put out the garbage on %1$s.</string>
     <string name="pickup_today">Pickup today.</string>
     <string name="pickup_tomorrow">Pickup tomorrow.</string>
-    <string name="pickup_in_n_days">Next pickup on %1$s.</string>
+    <string name="pickup_in_n_days">Next pickup in %1$s days.</string>
     <string name="image_of_containers">Image of containers.</string>
     <string name="action_setlocation">Set location</string>
     <string name="title_activity_search">Set Location</string>
