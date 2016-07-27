@@ -29,6 +29,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -53,8 +55,11 @@ public class RecyclingInfoFragment extends Fragment {
     @Bind(R.id.recycling_image)
     ImageView mRecyclingImage;
 
-    @Bind(R.id.recycling_meta)
-    TextView mRecyclingMeta;
+    @Bind(R.id.recycling_address)
+    TextView mRecyclingAddress;
+
+    @Bind(R.id.recycling_asof)
+    TextView mRecyclingAsof;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,7 +81,7 @@ public class RecyclingInfoFragment extends Fragment {
 
     protected void updateViewData() {
         SharedPreferences prefs = getActivity().getSharedPreferences(getString(R.string.pref_settings), Context.MODE_PRIVATE);
-        String address = prefs.getString(getString(R.string.pref_address), null);
+        final String address = prefs.getString(getString(R.string.pref_address), null);
         String api_base_url = prefs.getString(getString(R.string.pref_api_base_url), null);
         String api_path = prefs.getString(getString(R.string.pref_api_path), null);
 
@@ -98,20 +103,19 @@ public class RecyclingInfoFragment extends Fragment {
                         if (logicHandler.isRecyclingWeek()) {
                             mRecyclingImage.setImageResource(R.drawable.recycling_week_icon);
                             mRecyclingMessage.setText(getString(R.string.yes));
-                            String recyclingText = getString(R.string.put_out_the_recycling_bin);
-                            recyclingText = String.format(recyclingText, logicHandler.getPickUpDate());
-                            mRecyclingText.setText(recyclingText);
+                            mRecyclingText.setText(getString(R.string.put_out_the_recycling_bin));
                         } else {
                             mRecyclingImage.setImageResource(R.drawable.garbage_week_icon);
                             mRecyclingMessage.setText(getString(R.string.nope));
-                            String recyclingText = getString(R.string.garbage_bin_only);
-                            recyclingText = String.format(recyclingText, logicHandler.getPickUpDate());
-                            mRecyclingText.setText(recyclingText);
+                            mRecyclingText.setText(getString(R.string.garbage_bin_only));
                         }
-                        mRecyclingTimeFrame.setText("FIXME timeframe goes here");
-                        mRecyclingMeta.setText("FIXME data asof and address goes here");
+                        String recyclingTimeFrame = String.format(getString(R.string.pickup_in_n_days), logicHandler.getPickUpDays());
+                        mRecyclingTimeFrame.setText(recyclingTimeFrame);
+                        String timeStamp = new SimpleDateFormat("yyyy-MM-dd h:mm a").format(Calendar.getInstance().getTime());
+                        mRecyclingAddress.setText(address);
+                        mRecyclingAsof.setText(String.format("As of %1$s", timeStamp));
                     } else {
-                        mRecyclingText.setText("Sorry! We couldn't find that address. :(");
+                        mRecyclingText.setText(getText(R.string.cannot_find_address));
                     }
                }
 
