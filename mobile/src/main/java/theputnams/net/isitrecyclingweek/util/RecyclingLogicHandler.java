@@ -20,8 +20,11 @@ package theputnams.net.isitrecyclingweek.util;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import theputnams.net.isitrecyclingweek.restclients.model.CollectionEvent;
 
@@ -87,9 +90,20 @@ public class RecyclingLogicHandler {
         return recyclingEvent != null;
     }
 
-    public String getPickUpDate() {
+    public Integer getPickUpDays() {
         if (this.getGarbageEvent() != null) {
-            return new SimpleDateFormat("MM/dd/yyyy").format(this.getGarbageEvent().getCollectionDate());
-        } else return "";
+
+            Date nextPickup = this.getGarbageEvent().getCollectionDate();
+
+            Calendar c = new GregorianCalendar();
+            c.set(Calendar.HOUR_OF_DAY, 0);
+            c.set(Calendar.MINUTE, 0);
+            c.set(Calendar.SECOND, 0);
+            Date today = c.getTime();
+
+            Integer days_until_next_pickup = ((int) ((nextPickup.getTime() / (24 * 60 * 60 * 1000)) - (int) (today.getTime() / (24 * 60 * 60 * 1000))));
+
+            return days_until_next_pickup;
+        } else return 0;
     }
 }
