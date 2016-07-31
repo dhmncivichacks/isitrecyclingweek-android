@@ -17,13 +17,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion '21.1.2'
+    compileSdkVersion 24
+    buildToolsVersion '24.0.1'
 
     defaultConfig {
         applicationId "theputnams.net.isitrecyclingweek"
         minSdkVersion 15
-        targetSdkVersion 20
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
     }
@@ -37,10 +37,10 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:19.1.+'
+    compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
-    compile 'com.google.code.gson:gson:2.2.+'
+    compile 'com.google.code.gson:gson:2.4'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.mobsandgeeks:android-saripaar:2.0.3'
 }
