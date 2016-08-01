@@ -29,11 +29,7 @@
     <string name="pickup_tomorrow">Pickup tomorrow.</string>
     <string name="pickup_in_n_days">Next pickup in %1$d days.</string>
     <string name="image_of_containers">Image of containers.</string>
-    <string name="action_setlocation">Set location</string>
-    <string name="title_activity_search">Set Location</string>
     <string name="button_save">Save</string>
-    <string name="title_activity_search_result">Set Location</string>
-    <string name="title_activity_about">About</string>
     <string name="textview_about"><![CDATA[
 <h5>This open source app was written for citizens of Appleton, WI wanting to know if it is a recycling pickup week or not via Android devices.</h5>
 
