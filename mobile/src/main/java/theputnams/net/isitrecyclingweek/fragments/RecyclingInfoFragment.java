@@ -125,7 +125,6 @@ public class RecyclingInfoFragment extends Fragment {
 
                 @Override
                 public void failure(RetrofitError error) {
-                    //ToDo set up some sort of error logging for the app
                     Toast.makeText(getActivity(), R.string.error_internal_server_error, Toast.LENGTH_LONG).show();
                 }
             });

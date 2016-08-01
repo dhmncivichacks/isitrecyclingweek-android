@@ -120,7 +120,6 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
 
                     SharedPreferences.Editor editor = getActivity().getSharedPreferences(getString(R.string.pref_settings), Context.MODE_PRIVATE).edit();
 
-                    // ToDo Replace this with an ORM
                     // Save the address in prefs
                     editor.putString(getString(R.string.pref_address), address.toString());
                     // Save the api url in prefs
@@ -145,7 +144,6 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
 
             @Override
             public void failure(RetrofitError error) {
-                //ToDo set up some sort of error logging for the app
                 Toast.makeText(getActivity(), R.string.error_internal_server_error, Toast.LENGTH_LONG).show();
             }
         });

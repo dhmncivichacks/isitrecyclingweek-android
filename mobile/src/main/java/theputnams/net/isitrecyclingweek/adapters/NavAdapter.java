@@ -76,7 +76,7 @@ public class NavAdapter extends BaseAdapter
     @Override
     public View getView(int position, View view, ViewGroup viewGroup)
     {
-        // ToDo Should be view holder pattern but there aren't many items so it won't hurt us
+        // Should be view holder pattern but there aren't many items so it won't hurt us
         NavItem nav = mNavItems.get(position);
         view = mInflater.inflate(R.layout.nav_item_clickable, null);
         ((TextView) view.findViewById(R.id.tv_nav_text))
