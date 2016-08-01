@@ -19,7 +19,11 @@
 <resources>
 
     <string name="app_name">Is it recycling week?</string>
-    <string name="put_out_the_recycling_bin">Put out both garbage and recycling. </string>
+    <string name="label_street_address">Address</string>
+    <string name="label_city">City</string>
+    <string name="label_state">State</string>
+    <string name="label_zip">Zip Code</string>
+    <string name="put_out_the_recycling_bin">Put out garbage and recycling.</string>
     <string name="garbage_bin_only">Only put out the garbage.</string>
     <string name="pickup_today">Pickup today.</string>
     <string name="pickup_tomorrow">Pickup tomorrow.</string>
@@ -74,8 +78,5 @@
     <string name="address_updated">Address updated successfully</string>
     <string name="error_internal_server_error">Internal Server Error</string>
     <string name="error_required_field">This field is required</string>
-    <string name="street_address_hint">Address (ex: 123 N Main St)</string>
-    <string name="city_state_hint">City State (ex: Appleton WI)</string>
-    <string name="zip_hint">Zip Code (ex: 54911)</string>
     <string name="error_missing_data">Set an address by swiping the left edge or tapping the logo.</string>
 </resources>
