@@ -43,9 +43,6 @@ import theputnams.net.isitrecyclingweek.util.RecyclingLogicHandler;
 
 public class RecyclingInfoFragment extends Fragment {
 
-    @Bind(R.id.recycling_message)
-    TextView mRecyclingMessage;
-
     @Bind(R.id.recycling_text)
     TextView mRecyclingText;
 
@@ -101,11 +98,9 @@ public class RecyclingInfoFragment extends Fragment {
                         RecyclingLogicHandler logicHandler = new RecyclingLogicHandler(collectionEvents);
                         if (logicHandler.isRecyclingWeek()) {
                             mRecyclingImage.setImageResource(R.drawable.recycling_week_icon);
-                            mRecyclingMessage.setText(getString(R.string.yes));
                             mRecyclingText.setText(getString(R.string.put_out_the_recycling_bin));
                         } else {
                             mRecyclingImage.setImageResource(R.drawable.garbage_week_icon);
-                            mRecyclingMessage.setText(getString(R.string.nope));
                             mRecyclingText.setText(getString(R.string.garbage_bin_only));
                         }
                         String recyclingTimeFrame = String.format(getString(R.string.pickup_in_n_days), logicHandler.getPickUpDays());
