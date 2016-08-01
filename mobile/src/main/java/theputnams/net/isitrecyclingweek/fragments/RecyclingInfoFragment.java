@@ -103,7 +103,14 @@ public class RecyclingInfoFragment extends Fragment {
                             mRecyclingImage.setImageResource(R.drawable.garbage_week_icon);
                             mRecyclingText.setText(getString(R.string.garbage_bin_only));
                         }
-                        String recyclingTimeFrame = String.format(getString(R.string.pickup_in_n_days), logicHandler.getPickUpDays());
+                        String recyclingTimeFrame;
+                        if (logicHandler.getPickUpDays() == 0) {
+                            recyclingTimeFrame = getString(R.string.pickup_today);
+                        } else if (logicHandler.getPickUpDays() == 1) {
+                            recyclingTimeFrame = getString(R.string.pickup_tomorrow);
+                        } else {
+                            recyclingTimeFrame = String.format(getString(R.string.pickup_in_n_days), logicHandler.getPickUpDays());
+                        }
                         mRecyclingTimeFrame.setText(recyclingTimeFrame);
                         String timeStamp = new SimpleDateFormat("yyyy-MM-dd h:mm a").format(Calendar.getInstance().getTime());
                         SharedPreferences inner_prefs = getActivity().getSharedPreferences(getString(R.string.pref_settings), Context.MODE_PRIVATE);
@@ -111,6 +118,8 @@ public class RecyclingInfoFragment extends Fragment {
                         mRecyclingAsof.setText(String.format("As of %1$s", timeStamp));
                     } else {
                         mRecyclingText.setText(getText(R.string.cannot_find_address));
+                        SharedPreferences inner_prefs = getActivity().getSharedPreferences(getString(R.string.pref_settings), Context.MODE_PRIVATE);
+                        mRecyclingAddress.setText(inner_prefs.getString(getString(R.string.pref_address), null));
                     }
                }
 

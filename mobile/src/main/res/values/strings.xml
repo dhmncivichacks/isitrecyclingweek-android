@@ -19,7 +19,7 @@
 <resources>
 
     <string name="app_name">Is it recycling week?</string>
-    <string name="label_street_address">Address</string>
+    <string name="label_street_address">Address (ex: 123 Main St)</string>
     <string name="label_city">City</string>
     <string name="label_state">State</string>
     <string name="label_zip">Zip Code</string>
@@ -70,7 +70,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="service_not_available">We\'re sorry. This service is not available in your area</string>
-    <string name="cannot_find_address">Sorry! We couldn\'t find that address. :(</string>
+    <string name="cannot_find_address">Sorry!\nWe couldn\'t find that address. :(</string>
     <string name="address_updated">Address updated successfully</string>
     <string name="error_internal_server_error">Internal Server Error</string>
     <string name="error_required_field">This field is required</string>
