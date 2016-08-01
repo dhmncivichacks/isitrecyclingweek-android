@@ -31,11 +31,11 @@
     <string name="image_of_containers">Image of containers.</string>
     <string name="button_save">Save</string>
     <string name="textview_about"><![CDATA[
-<h5>This open source app was written for citizens of Appleton, WI wanting to know if it is a recycling pickup week or not via Android devices.</h5>
+<h5>This open source app was written for citizens wanting to know if it is a recycling pickup week or not via Android devices.</h5>
 
-<p>All data comes directly from the city-managed site:<br/><a href="http://my.appleton.org/">http://my.appleton.org/</a></p>
+<p>Currently, data is available for Appleton, Greenville, Seymour, New London, Kaukauna, Little Chute, Kimberly, Combined Locks and other points in-between in Outagamie County.</p>
 
-<p>Want to help improve this app or it\'s API? See us on <a href="https://github.com/dhmncivichacks/isitrecyclingweek">Github</a>!</p>
+<p>Want to help improve this app or it\'s API? See us on <a href="http://dhmncivichacks.github.io/">Github</a>!</p>
 
 <p>
 <i><b>Android app Contributors:</b></i>
@@ -43,7 +43,12 @@
 <br/>Dan Gabrielson - Java help, testing, and pairing.
 <br/>David Kieffer - Art, testing, UX feedback.
 <br/>Jacob Kiser - Major re-write improving code organization and navigation.
+<br/>Amy Putnam - Testing, UX feedback.
+<br/>Jacob Putnam - Testing, UX feedback.
 <br/>Mike Putnam - Original version, deployment.
+<br/>Mike Rosack - Enabled data from any city/town with adherence to the <a href="http://civic-hack-api-locator.azurewebsites.net/#/contracts">Civic Hack API Locator</a> for recycling dates.
+<br/>Eric Schultz - Bug report/testing
+<br/>Bob Waldron - Testing, UX feedback.
 </p>
 
 <p>
@@ -54,11 +59,11 @@
 
 <p><i><b>Thanks to:</b></i></p>
 
-<p>City of Appleton for providing open data to hack on.</p>
+<p>Local Wisconsin municipalities for providing open data to hack on.</p>
 
 <p>Bob Waldron and <a href="http://dhmncivichacks.blogspot.com/">DHMN Civic Hacks</a> for leading the first Northeast Wisconsin civic hackathon.</p>
 
-<p>All the people at the <a href="http://appletonmakerspace.org/">Appleton Makerspace</a> and the <a href="http://www.theavenuehq.com/">AvenueHQ</a> for inspiration and a place to write code.</p>
+<p>All the people at the <a href="http://appletonmakerspace.org/">Appleton Makerspace</a> and the <a href="https://www.appletoncoworking.org/">Appleton Coworking</a> for inspiration and a place to write code.</p>
 
 <p>Jim Carlson and <a href="http://barcampmilwaukee.org/">BarCampMilwaukee</a> for introducing me to unconferences.</p>
 
