@@ -28,6 +28,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.ValidationError;
@@ -51,6 +52,18 @@ import theputnams.net.isitrecyclingweek.restclients.service.ApiService;
  */
 public class SettingsFragment extends Fragment implements Validator.ValidationListener {
 
+    @Bind(R.id.label_street_address)
+    TextView mLabelStreetAddress;
+
+    @Bind(R.id.label_city)
+    TextView mLabelCity;
+
+    @Bind(R.id.label_state)
+    TextView mLabelState;
+
+    @Bind(R.id.label_zip)
+    TextView mLabelZip;
+
     @Bind(R.id.zip_code)
     @NotEmpty
     EditText mZipCode;
@@ -62,9 +75,13 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
     @NotEmpty
     EditText mStreetAddress;
 
-    @Bind(R.id.city_state)
+    @Bind(R.id.city)
     @NotEmpty
-    EditText mCityState;
+    EditText mCity;
+
+    @Bind(R.id.state)
+    @NotEmpty
+    EditText mState;
 
     Validator mValidator;
 
@@ -80,6 +97,12 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
                 mValidator.validate();
             }
         });
+
+        mLabelStreetAddress.setText(getString(R.string.label_street_address));
+        mLabelCity.setText(getString(R.string.label_city));
+        mLabelState.setText(getString(R.string.label_state));
+        mLabelZip.setText(getString(R.string.label_zip));
+
         return searchView;
     }
 
@@ -91,12 +114,12 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
 
                 if (apiContracts.length > 0) {
                     StringBuilder address = new StringBuilder(mStreetAddress.getText().toString());
-                    address.append(" " + mCityState.getText().toString());
+                    address.append(" " + mCity.getText().toString());
+                    address.append(" " + mState.getText().toString());
                     address.append(" " + mZipCode.getText().toString());
 
                     SharedPreferences.Editor editor = getActivity().getSharedPreferences(getString(R.string.pref_settings), Context.MODE_PRIVATE).edit();
 
-                    // ToDo Replace this with an ORM
                     // Save the address in prefs
                     editor.putString(getString(R.string.pref_address), address.toString());
                     // Save the api url in prefs
@@ -121,7 +144,6 @@ public class SettingsFragment extends Fragment implements Validator.ValidationLi
 
             @Override
             public void failure(RetrofitError error) {
-                //ToDo set up some sort of error logging for the app
                 Toast.makeText(getActivity(), R.string.error_internal_server_error, Toast.LENGTH_LONG).show();
             }
         });

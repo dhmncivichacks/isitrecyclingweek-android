@@ -43,9 +43,6 @@ import theputnams.net.isitrecyclingweek.util.RecyclingLogicHandler;
 
 public class RecyclingInfoFragment extends Fragment {
 
-    @Bind(R.id.recycling_message)
-    TextView mRecyclingMessage;
-
     @Bind(R.id.recycling_text)
     TextView mRecyclingText;
 
@@ -81,13 +78,12 @@ public class RecyclingInfoFragment extends Fragment {
 
     protected void updateViewData() {
         SharedPreferences prefs = getActivity().getSharedPreferences(getString(R.string.pref_settings), Context.MODE_PRIVATE);
-        final String address = prefs.getString(getString(R.string.pref_address), null);
+        String address = prefs.getString(getString(R.string.pref_address), null);
         String api_base_url = prefs.getString(getString(R.string.pref_api_base_url), null);
         String api_path = prefs.getString(getString(R.string.pref_api_path), null);
 
         if (address == null || api_base_url == null || api_path == null) {
             // We're in a bad state... have them update settings
-            //ToDo We cannot handle the multiple api end points at the moment because of how they are pathed combined with the contract values
             mRecyclingText.setText(getString(R.string.error_missing_data));
         }
 
@@ -102,26 +98,33 @@ public class RecyclingInfoFragment extends Fragment {
                         RecyclingLogicHandler logicHandler = new RecyclingLogicHandler(collectionEvents);
                         if (logicHandler.isRecyclingWeek()) {
                             mRecyclingImage.setImageResource(R.drawable.recycling_week_icon);
-                            mRecyclingMessage.setText(getString(R.string.yes));
                             mRecyclingText.setText(getString(R.string.put_out_the_recycling_bin));
                         } else {
                             mRecyclingImage.setImageResource(R.drawable.garbage_week_icon);
-                            mRecyclingMessage.setText(getString(R.string.nope));
                             mRecyclingText.setText(getString(R.string.garbage_bin_only));
                         }
-                        String recyclingTimeFrame = String.format(getString(R.string.pickup_in_n_days), logicHandler.getPickUpDays());
+                        String recyclingTimeFrame;
+                        if (logicHandler.getPickUpDays() == 0) {
+                            recyclingTimeFrame = getString(R.string.pickup_today);
+                        } else if (logicHandler.getPickUpDays() == 1) {
+                            recyclingTimeFrame = getString(R.string.pickup_tomorrow);
+                        } else {
+                            recyclingTimeFrame = String.format(getString(R.string.pickup_in_n_days), logicHandler.getPickUpDays());
+                        }
                         mRecyclingTimeFrame.setText(recyclingTimeFrame);
                         String timeStamp = new SimpleDateFormat("yyyy-MM-dd h:mm a").format(Calendar.getInstance().getTime());
-                        mRecyclingAddress.setText(address);
+                        SharedPreferences inner_prefs = getActivity().getSharedPreferences(getString(R.string.pref_settings), Context.MODE_PRIVATE);
+                        mRecyclingAddress.setText(inner_prefs.getString(getString(R.string.pref_address), null));
                         mRecyclingAsof.setText(String.format("As of %1$s", timeStamp));
                     } else {
                         mRecyclingText.setText(getText(R.string.cannot_find_address));
+                        SharedPreferences inner_prefs = getActivity().getSharedPreferences(getString(R.string.pref_settings), Context.MODE_PRIVATE);
+                        mRecyclingAddress.setText(inner_prefs.getString(getString(R.string.pref_address), null));
                     }
                }
 
                 @Override
                 public void failure(RetrofitError error) {
-                    //ToDo set up some sort of error logging for the app
                     Toast.makeText(getActivity(), R.string.error_internal_server_error, Toast.LENGTH_LONG).show();
                 }
             });

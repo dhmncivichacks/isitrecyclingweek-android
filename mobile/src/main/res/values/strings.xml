@@ -19,25 +19,23 @@
 <resources>
 
     <string name="app_name">Is it recycling week?</string>
-    <string name="put_out_the_recycling_bin">Put out both garbage and recycling. </string>
-    <string name="yes">Yes!</string>
-    <string name="nope">Nope.</string>
+    <string name="label_street_address">Address (ex: 123 Main St)</string>
+    <string name="label_city">City</string>
+    <string name="label_state">State</string>
+    <string name="label_zip">Zip Code</string>
+    <string name="put_out_the_recycling_bin">Put out garbage and recycling.</string>
     <string name="garbage_bin_only">Only put out the garbage.</string>
     <string name="pickup_today">Pickup today.</string>
     <string name="pickup_tomorrow">Pickup tomorrow.</string>
     <string name="pickup_in_n_days">Next pickup in %1$d days.</string>
     <string name="image_of_containers">Image of containers.</string>
-    <string name="action_setlocation">Set location</string>
-    <string name="title_activity_search">Set Location</string>
     <string name="button_save">Save</string>
-    <string name="title_activity_search_result">Set Location</string>
-    <string name="title_activity_about">About</string>
     <string name="textview_about"><![CDATA[
-<h5>This open source app was written for citizens of Appleton, WI wanting to know if it is a recycling pickup week or not via Android devices.</h5>
+<h5>This open source app was written for citizens wanting to know if it is a recycling pickup week or not via Android devices.</h5>
 
-<p>All data comes directly from the city-managed site:<br/><a href="http://my.appleton.org/">http://my.appleton.org/</a></p>
+<p>Currently, data is available for Appleton, Greenville, Seymour, New London, Kaukauna, Little Chute, Kimberly, Combined Locks and other points in-between in Outagamie County.</p>
 
-<p>Want to help improve this app or it\'s API? See us on <a href="https://github.com/dhmncivichacks/isitrecyclingweek">Github</a>!</p>
+<p>Want to help improve this app or it\'s API? See us on <a href="http://dhmncivichacks.github.io/">Github</a>!</p>
 
 <p>
 <i><b>Android app Contributors:</b></i>
@@ -45,7 +43,12 @@
 <br/>Dan Gabrielson - Java help, testing, and pairing.
 <br/>David Kieffer - Art, testing, UX feedback.
 <br/>Jacob Kiser - Major re-write improving code organization and navigation.
+<br/>Amy Putnam - Testing, UX feedback.
+<br/>Jacob Putnam - Testing, UX feedback.
 <br/>Mike Putnam - Original version, deployment.
+<br/>Mike Rosack - Enabled data from any city/town with adherence to the <a href="http://civic-hack-api-locator.azurewebsites.net/#/contracts">Civic Hack API Locator</a> for recycling dates.
+<br/>Eric Schultz - Bug report/testing
+<br/>Bob Waldron - Testing, UX feedback.
 </p>
 
 <p>
@@ -56,11 +59,11 @@
 
 <p><i><b>Thanks to:</b></i></p>
 
-<p>City of Appleton for providing open data to hack on.</p>
+<p>Local Wisconsin municipalities for providing open data to hack on.</p>
 
 <p>Bob Waldron and <a href="http://dhmncivichacks.blogspot.com/">DHMN Civic Hacks</a> for leading the first Northeast Wisconsin civic hackathon.</p>
 
-<p>All the people at the <a href="http://appletonmakerspace.org/">Appleton Makerspace</a> and the <a href="http://www.theavenuehq.com/">AvenueHQ</a> for inspiration and a place to write code.</p>
+<p>All the people at the <a href="http://appletonmakerspace.org/">Appleton Makerspace</a> and the <a href="https://www.appletoncoworking.org/">Appleton Coworking</a> for inspiration and a place to write code.</p>
 
 <p>Jim Carlson and <a href="http://barcampmilwaukee.org/">BarCampMilwaukee</a> for introducing me to unconferences.</p>
 
@@ -72,12 +75,9 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="service_not_available">We\'re sorry. This service is not available in your area</string>
-    <string name="cannot_find_address">Sorry! We couldn\'t find that address. :(</string>
+    <string name="cannot_find_address">Sorry!\nWe couldn\'t find that address. :(</string>
     <string name="address_updated">Address updated successfully</string>
     <string name="error_internal_server_error">Internal Server Error</string>
     <string name="error_required_field">This field is required</string>
-    <string name="street_address_hint">Address (ex: 123 N Main St)</string>
-    <string name="city_state_hint">City State (ex: Appleton WI)</string>
-    <string name="zip_hint">Zip Code (ex: 54911)</string>
     <string name="error_missing_data">Set an address by swiping the left edge or tapping the logo.</string>
 </resources>
